@@ -6,6 +6,9 @@ public partial class Player : Area2D
 	[Export]
 	public int Speed {get; set; } = 400;
 	
+	[Signal]
+	public delegate void HitEventHandler();
+	
 	public Vector2 ScreenSize;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -40,5 +43,19 @@ public partial class Player : Area2D
 			x: Mathf.Clamp(Position.X, 0, ScreenSize.X),
 			y: Mathf.Clamp(Position.Y, 0, ScreenSize.Y)
 		);
+	}
+	
+	private void OnBodyEntered(Node2D body)
+	{
+		Hide(); // Player disappears after being hit.
+		EmitSignal(SignalName.Hit);
+		// Must be deferred as we can't change physics properties on a physics callback.
+		GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
+	}
+	
+	public void Start(Vector2 position)
+	{
+		Position = position;
+		GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
 	}
 }

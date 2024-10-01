@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2bmam05depd3"]
+
+[ext_resource type="Script" path="res://Main.cs" id="1_gq0hu"]
+[ext_resource type="PackedScene" uid="uid://1t4tsmxq6j1d" path="res://player.tscn" id="1_utjfx"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_gq0hu")
+
+[node name="player" parent="." instance=ExtResource("1_utjfx")]
+
+[node name="StartPosition" type="Marker2D" parent="player"]
+position = Vector2(240, 450)
+
+[node name="StartTimer" type="Timer" parent="player"]
+one_shot = true

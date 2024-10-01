@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4r41bg05xw65"]
+
+[ext_resource type="Script" path="res://Hud.cs" id="1_imdgo"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_imdgo")
+
+[node name="Message" type="Label" parent="."]
+offset_left = 984.0
+offset_top = 423.0
+offset_right = 1064.0
+offset_bottom = 446.0
+text = "RogueLike"
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 876.0
+offset_top = 498.0
+offset_right = 1211.0
+offset_bottom = 658.0
+text = "Start"
+
+[node name="MessageTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
