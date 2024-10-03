@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://drttof0q7idxi"]
+
+[ext_resource type="Script" path="res://Scripts/Bullet.cs" id="1_lsri7"]
+[ext_resource type="Texture2D" uid="uid://dylyukbvm63ex" path="res://Art/whitesquare.jpg" id="1_t0wup"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgfyt"]
+size = Vector2(38, 38)
+
+[node name="Bullet" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_lsri7")
+
+[node name="Whitesquare" type="Sprite2D" parent="."]
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("1_t0wup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tgfyt")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
