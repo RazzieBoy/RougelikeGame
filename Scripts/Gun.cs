@@ -2,6 +2,7 @@ using Godot;
 using System;
 
 public partial class Gun : Node2D{
+	
 	[Export] PackedScene bulletScene;
 	[Export] float bulletSpeed = 700f;
 	[Export] float bps = 5;
@@ -23,9 +24,7 @@ public partial class Gun : Node2D{
 			bullet.Rotation = GlobalRotation;
 			bullet.GlobalPosition = GlobalPosition;
 			bullet.LinearVelocity = bullet.Transform.X * bulletSpeed;
-			
 			GetTree().Root.AddChild(bullet);
-			
 			attackCooldown = 0f;
 		}
 		else{

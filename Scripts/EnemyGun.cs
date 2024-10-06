@@ -2,6 +2,7 @@ using Godot;
 using System;
 
 public partial class EnemyGun : Node2D{
+	
 	[Export] PackedScene bulletScene;
 	[Export] float bulletSpeed = 700f;
 	[Export] float shootCooldown = 1f;
@@ -22,7 +23,6 @@ public partial class EnemyGun : Node2D{
 			// Calculate direction to the player
 			Vector2 direction = (player.GlobalPosition - GlobalPosition).Normalized();
 			Rotation = direction.Angle();
-
 			// Shoot at intervals
 			attackCooldown -= (float)delta;
 			if (attackCooldown <= 0f)
@@ -40,7 +40,6 @@ public partial class EnemyGun : Node2D{
 		// Set the bullet's initial position and direction
 		bullet.GlobalPosition = GlobalPosition;
 		bullet.LinearVelocity = direction * bulletSpeed;
-
 		// Add the bullet to the scene
 		GetTree().Root.AddChild(bullet);
 	}

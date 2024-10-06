@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/RangedEnemy.cs" id="1_kiau5"]
 [ext_resource type="Texture2D" uid="uid://dyh210g8cm5ns" path="res://Art/redsquare.jpg" id="2_g7pqa"]
 [ext_resource type="Script" path="res://Scripts/EnemyGun.cs" id="5_21gvn"]
-[ext_resource type="PackedScene" uid="uid://dm6hufjpc7tkf" path="res://enemy_bullet.tscn" id="5_q364t"]
+[ext_resource type="PackedScene" uid="uid://dm6hufjpc7tkf" path="res://Entities/enemy_bullet.tscn" id="5_q364t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1v3oo"]
 size = Vector2(77.5, 77)
