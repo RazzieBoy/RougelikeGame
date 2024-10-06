@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvobeh7r33vyf"]
+[gd_scene load_steps=7 format=3 uid="uid://dvobeh7r33vyf"]
 
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_3drt3"]
 [ext_resource type="Texture2D" uid="uid://dylyukbvm63ex" path="res://Art/whitesquare.jpg" id="1_yyhsa"]
+[ext_resource type="Script" path="res://Scripts/Health.cs" id="2_oh0h3"]
 [ext_resource type="Script" path="res://Scripts/Gun.cs" id="3_oc4ss"]
 [ext_resource type="PackedScene" uid="uid://drttof0q7idxi" path="res://bullet.tscn" id="4_qwrt7"]
 
@@ -11,6 +12,9 @@ size = Vector2(75, 75)
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_3drt3")
+
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource("2_oh0h3")
 
 [node name="GFX" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)

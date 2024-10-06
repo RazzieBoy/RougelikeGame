@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://blv0f1ln71nmk"]
+[gd_scene load_steps=5 format=3 uid="uid://blv0f1ln71nmk"]
 
 [ext_resource type="Script" path="res://Scripts/MeleeEnemy.cs" id="1_jcw46"]
+[ext_resource type="Script" path="res://Scripts/Health.cs" id="2_33vcg"]
 [ext_resource type="Texture2D" uid="uid://dyh210g8cm5ns" path="res://Art/redsquare.jpg" id="2_o4mov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2r18v"]
@@ -8,6 +9,9 @@ size = Vector2(75, 74)
 
 [node name="MeleeEnemy" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_jcw46")
+
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource("2_33vcg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2r18v")
