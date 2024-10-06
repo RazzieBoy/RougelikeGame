@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bnmg08apmf7co"]
+[gd_scene load_steps=4 format=3 uid="uid://bnmg08apmf7co"]
 
 [ext_resource type="PackedScene" uid="uid://dvobeh7r33vyf" path="res://Entities/player.tscn" id="1_ivsnu"]
 [ext_resource type="PackedScene" uid="uid://blv0f1ln71nmk" path="res://Entities/melee_enemy.tscn" id="2_nng48"]
+[ext_resource type="PackedScene" uid="uid://uv8ufyssme5w" path="res://Entities/ranged_enemy.tscn" id="3_s7u6o"]
 
 [node name="Main" type="Node2D"]
 
@@ -10,4 +11,7 @@ position = Vector2(960, 540)
 speed = 400.0
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("2_nng48")]
-position = Vector2(287, 950)
+position = Vector2(192, 826)
+
+[node name="RangedEnemy" parent="." instance=ExtResource("3_s7u6o")]
+position = Vector2(229, 101)

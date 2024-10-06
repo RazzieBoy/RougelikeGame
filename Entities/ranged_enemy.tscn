@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://uv8ufyssme5w"]
+
+[ext_resource type="Script" path="res://Scripts/Health.cs" id="1_h60n3"]
+[ext_resource type="Script" path="res://Scripts/RangedEnemy.cs" id="1_kiau5"]
+[ext_resource type="Texture2D" uid="uid://dyh210g8cm5ns" path="res://Art/redsquare.jpg" id="2_g7pqa"]
+[ext_resource type="Script" path="res://Scripts/EnemyGun.cs" id="5_21gvn"]
+[ext_resource type="PackedScene" uid="uid://dm6hufjpc7tkf" path="res://enemy_bullet.tscn" id="5_q364t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1v3oo"]
+size = Vector2(77.5, 77)
+
+[node name="RangedEnemy" type="CharacterBody2D"]
+script = ExtResource("1_kiau5")
+
+[node name="Health" type="Node2D" parent="."]
+script = ExtResource("1_h60n3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1v3oo")
+
+[node name="EnemyGFX" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_g7pqa")
+
+[node name="Gun" type="Node2D" parent="."]
+position = Vector2(74, 0)
+script = ExtResource("5_21gvn")
+bulletScene = ExtResource("5_q364t")
