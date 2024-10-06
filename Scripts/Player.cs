@@ -4,7 +4,6 @@ using System;
 public partial class Player : CharacterBody2D{
 	//Allows for simple debbuing to change the speed in the inspector
 	[Export] public float speed = 300f;
-	[Export] public int health = 10;
 	
 	public override void _PhysicsProcess(double delta){
 		//Makes the player always look at where the computer mouse is located

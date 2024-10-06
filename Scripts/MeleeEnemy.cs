@@ -44,7 +44,8 @@ public partial class MeleeEnemy : CharacterBody2D{
 	}
 	
 	public void Attack(){
-		//Debug.Print("Attack player");
+		GD.Print("Attack player");
+		player.GetNode<Health>("Health").Damage(damage);
 	}
 	
 	public void OnAttackRangeBodyEnter(Node2D body){

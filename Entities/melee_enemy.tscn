@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dyh210g8cm5ns" path="res://Art/redsquare.jpg" id="2_o4mov"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2r18v"]
-size = Vector2(75, 74)
+size = Vector2(77.5, 77)
 
 [node name="MeleeEnemy" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_jcw46")
@@ -23,6 +23,7 @@ texture = ExtResource("2_o4mov")
 [node name="AttackRange" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_2r18v")
 
 [connection signal="body_entered" from="AttackRange" to="." method="OnAttackRangeBodyEnter"]
