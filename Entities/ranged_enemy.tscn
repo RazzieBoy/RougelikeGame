@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://uv8ufyssme5w"]
+[gd_scene load_steps=8 format=3 uid="uid://uv8ufyssme5w"]
 
 [ext_resource type="Script" path="res://Scripts/Health.cs" id="1_h60n3"]
 [ext_resource type="Script" path="res://Scripts/RangedEnemy.cs" id="1_kiau5"]
@@ -9,7 +9,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1v3oo"]
 size = Vector2(77.5, 77)
 
-[node name="RangedEnemy" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohxnt"]
+size = Vector2(77.5, 77)
+
+[node name="RangedEnemy" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_kiau5")
 
 [node name="Health" type="Node2D" parent="."]
@@ -26,3 +29,9 @@ texture = ExtResource("2_g7pqa")
 position = Vector2(74, 0)
 script = ExtResource("5_21gvn")
 bulletScene = ExtResource("5_q364t")
+
+[node name="AttackRange" type="Area2D" parent="." groups=["enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ohxnt")
