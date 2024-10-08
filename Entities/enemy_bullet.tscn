@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dm6hufjpc7tkf"]
 
-[ext_resource type="Script" path="res://Scripts/EnemyBullet.cs" id="1_q4grv"]
-[ext_resource type="Texture2D" uid="uid://dylyukbvm63ex" path="res://Art/whitesquare.jpg" id="2_n7e53"]
+[ext_resource type="Script" path="res://Scripts/EnemyBullet.cs" id="1_eyiuw"]
+[ext_resource type="Texture2D" uid="uid://dylyukbvm63ex" path="res://Art/whitesquare.jpg" id="2_eosmi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgfyt"]
 size = Vector2(38, 38)
@@ -10,11 +10,11 @@ size = Vector2(38, 38)
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1
-script = ExtResource("1_q4grv")
+script = ExtResource("1_eyiuw")
 
 [node name="Whitesquare" type="Sprite2D" parent="."]
 scale = Vector2(0.025, 0.025)
-texture = ExtResource("2_n7e53")
+texture = ExtResource("2_eosmi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tgfyt")

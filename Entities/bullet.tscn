@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://drttof0q7idxi"]
 
-[ext_resource type="Script" path="res://Scripts/Bullet.cs" id="1_lsri7"]
-[ext_resource type="Texture2D" uid="uid://dylyukbvm63ex" path="res://Art/whitesquare.jpg" id="1_t0wup"]
+[ext_resource type="Script" path="res://Scripts/Bullet.cs" id="1_no6ua"]
+[ext_resource type="Texture2D" uid="uid://dylyukbvm63ex" path="res://Art/whitesquare.jpg" id="2_mpphd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgfyt"]
 size = Vector2(38, 38)
@@ -10,11 +10,11 @@ size = Vector2(38, 38)
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1
-script = ExtResource("1_lsri7")
+script = ExtResource("1_no6ua")
 
 [node name="Whitesquare" type="Sprite2D" parent="."]
 scale = Vector2(0.025, 0.025)
-texture = ExtResource("1_t0wup")
+texture = ExtResource("2_mpphd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tgfyt")
