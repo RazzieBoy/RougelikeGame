@@ -27,3 +27,6 @@ shape = SubResource("RectangleShape2D_mim04")
 position = Vector2(70, 0)
 script = ExtResource("3_oc4ss")
 bulletScene = ExtResource("4_qwrt7")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
