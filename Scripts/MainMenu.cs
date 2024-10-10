@@ -11,4 +11,6 @@ public partial class MainMenu : Control{
 	private void _on_quit_button_pressed(){
 		GetTree().Quit();
 	}
+	
+	private void _on_settings_button_pressed(){}
 }

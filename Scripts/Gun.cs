@@ -8,7 +8,7 @@ public partial class Gun : Node2D{
 	[Export] float bps = 5;
 	[Export] float bulletDamage = 2f;
 	
-	float reload = 10;
+	float primaryAmmoCount = 10;
 	bool isReloading = false;
 	float fireRate;
 	float attackCooldown = 0f;
@@ -23,8 +23,9 @@ public partial class Gun : Node2D{
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta){
-		if (Input.IsActionPressed("shoot") && attackCooldown > fireRate){
-			if (!isReloading && reload > 0){
+		//Players primary Attack methods used via the Left mouse button
+		if (Input.IsActionPressed("primairy") && attackCooldown > fireRate){
+			if (!isReloading && primaryAmmoCount > 0){
 				RigidBody2D bullet = bulletScene.Instantiate<RigidBody2D>();
 			
 				bullet.Rotation = GlobalRotation;
@@ -33,28 +34,16 @@ public partial class Gun : Node2D{
 				GetTree().Root.AddChild(bullet);
 				attackCooldown = 0f;
 			}
-			reload--;
-			if	(reload <= 0){
-				StartReload();
+			primaryAmmoCount--;
+			if	(primaryAmmoCount <= 0){
 			}
 		}
 		else{
 			attackCooldown += (float)delta;
 		}
-	}
-	
-	private void StartReload(){
-		isReloading = true;
-		reload = 10;
-		Timer timer = new Timer();
-		AddChild(timer);
-		timer.WaitTime = ReloadTime;
-		timer.OneShot = true;
-		timer.Connect("timeout", this, nameof(OnReloadComplete));
-		timer.Start();
-	}
-	
-	private void OnReloadComplete(){
-		isReloading = false;
+		
+		if (Input.IsActionPressed("reload")){
+			primaryAmmoCount = 10;
+		}
 	}
 }
