@@ -26,6 +26,10 @@ window/size/resizable=false
 
 project/assembly_name="RougeLikegame"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gaea/plugin.cfg")
+
 [global_group]
 
 player=""
