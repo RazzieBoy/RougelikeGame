@@ -17,6 +17,8 @@ public partial class Health : Node2D{
 		health -= damage;
 		if (health <= 0){
 			GetParent().QueueFree();
+			GetTree().ChangeSceneToFile("res://death_display.tscn");
 		}
 	}
+	
 }

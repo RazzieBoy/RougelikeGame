@@ -12,7 +12,7 @@
 position = Vector2(4315, -6018)
 
 [node name="Player" parent="." instance=ExtResource("1_ivsnu")]
-position = Vector2(109, 144)
+position = Vector2(1207, 657)
 speed = 400.0
 
 [node name="MeleeEnemy" parent="." instance=ExtResource("2_nng48")]
