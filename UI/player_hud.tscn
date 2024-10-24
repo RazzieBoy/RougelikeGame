@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dox64bulxhul1"]
+
+[node name="PlayerHUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 38.0
+offset_right = 461.0
+offset_bottom = 80.0
+color = Color(0.87451, 0.584314, 1, 1)
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -326.0
+offset_top = -142.0
+offset_right = -36.0
+offset_bottom = -48.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.87451, 0.584314, 1, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.87451, 0.584314, 1, 1)
