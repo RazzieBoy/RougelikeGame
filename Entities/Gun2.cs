@@ -20,7 +20,6 @@ public partial class Gun2 : Node2D{
 		//Timer reloadTimer = GetNode<Timer>("ReloadTimer");
 		//reloadTimer.Connect("timeout", this, "_on_timer_timeout");
 	}
-
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta){
 		//Players primary Attack methods used via the Left mouse button
@@ -41,7 +40,6 @@ public partial class Gun2 : Node2D{
 		else{
 			attackCooldown += (float)delta;
 		}
-		
 		if (Input.IsActionPressed("reload")){
 			primaryAmmoCount = 10;
 		}

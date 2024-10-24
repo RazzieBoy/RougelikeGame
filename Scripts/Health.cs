@@ -2,7 +2,6 @@ using Godot;
 using System;
 
 public partial class Health : Node2D{
-	
 	//Allows for debuggins and changing hp in the inspector
 	[Export] public float maxHealth = 10f;
 	float health;
@@ -17,7 +16,6 @@ public partial class Health : Node2D{
 		health -= damage;
 		if (health <= 0){
 			GetParent().QueueFree();
-			GetTree().ChangeSceneToFile("res://death_display.tscn");
 		}
 	}
 	

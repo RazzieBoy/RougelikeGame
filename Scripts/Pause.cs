@@ -21,6 +21,6 @@ public partial class Pause : Control{
 	
 	private void _Home(){
 		GetTree().Paused = false;
-		GetTree().ChangeSceneToFile("res://main_menu.tscn");
+		GetTree().ChangeSceneToFile("res://UI/main_menu.tscn");
 	}
 }

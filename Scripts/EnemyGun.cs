@@ -31,7 +31,6 @@ public partial class EnemyGun : Node2D{
 
 	private void Shoot(Vector2 direction){
 		RigidBody2D bullet = bulletScene.Instantiate<RigidBody2D>();
-		
 		// Set the bullet's initial position and direction
 		bullet.GlobalPosition = GlobalPosition;
 		bullet.LinearVelocity = direction * bulletSpeed;
