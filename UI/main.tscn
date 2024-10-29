@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnmg08apmf7co"]
+[gd_scene load_steps=8 format=3 uid="uid://bnmg08apmf7co"]
 
+[ext_resource type="Script" path="res://Scripts/Main.cs" id="1_312f2"]
 [ext_resource type="PackedScene" uid="uid://brnxjvspxbx5x" path="res://rogue_like_world_generation.tscn" id="1_na0hf"]
 [ext_resource type="PackedScene" uid="uid://dvobeh7r33vyf" path="res://Entities/player.tscn" id="2_jlkxa"]
 [ext_resource type="PackedScene" uid="uid://blv0f1ln71nmk" path="res://Entities/melee_enemy.tscn" id="3_pawdn"]
 [ext_resource type="PackedScene" uid="uid://uv8ufyssme5w" path="res://Entities/ranged_enemy.tscn" id="4_5y50m"]
 [ext_resource type="PackedScene" uid="uid://c0v5346kxng6c" path="res://UI/pause.tscn" id="5_2rvqq"]
+[ext_resource type="PackedScene" uid="uid://dox64bulxhul1" path="res://UI/player_hud.tscn" id="6_nvtmb"]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_312f2")
 
 [node name="RogueLike_World_Generation" parent="." instance=ExtResource("1_na0hf")]
 position = Vector2(4315, -6018)
@@ -22,3 +25,9 @@ position = Vector2(531, 196)
 
 [node name="Pause" parent="." instance=ExtResource("5_2rvqq")]
 visible = false
+
+[node name="PlayerHUD" parent="." instance=ExtResource("6_nvtmb")]
+offset_left = 964.0
+offset_top = 552.0
+offset_right = 964.0
+offset_bottom = 552.0

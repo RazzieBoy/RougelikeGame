@@ -13,13 +13,15 @@ public partial class Gun : Node2D{
 	bool isReloading = false;
 	bool isFrenzy = false;
 	
-	float primaryAmmoCount = 10;
+	public float primaryAmmoCount = 10;
 	float fireRate;
 	float attackCooldown = 0f;
 	float ReloadTime = 2f;
 	private float frenzyTimeLeft = 0f;
 	private float frenzyCooldownLeft = 0f;
 	private float storedBps;
+	
+	public event EventHandler<int> AmmoUpdatedEventHandler;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready(){
@@ -56,6 +58,7 @@ public partial class Gun : Node2D{
 				
 				if (!isFrenzy){
 					primaryAmmoCount--;
+					UpdateAmmo();
 				}
 			}
 		}
@@ -64,6 +67,7 @@ public partial class Gun : Node2D{
 		}
 		if (Input.IsActionPressed("reload")){
 			primaryAmmoCount = 10;
+			UpdateAmmo();
 		}
 		if (Input.IsActionPressed("special") && frenzyCooldownLeft <= 0){
 			isFrenzy = true;
@@ -71,5 +75,8 @@ public partial class Gun : Node2D{
 			bps = storedBps * 3;
 			fireRate = 1 / bps;
 		}
+	}
+	private void UpdateAmmo(){
+		AmmoUpdatedEventHandler?.Invoke(this, (int)primaryAmmoCount);
 	}
 }
