@@ -8,7 +8,7 @@ public partial class Gun : Node2D{
 	[Export] float bps = 5;
 	[Export] float bulletDamage = 2f;
 	[Export] float frenzyTime = 3f;
-	[Export] float frenzyCooldown = 30f; 
+	[Export] public float frenzyCooldown = 30f; 
 	
 	bool isReloading = false;
 	bool isFrenzy = false;
@@ -22,6 +22,7 @@ public partial class Gun : Node2D{
 	private float storedBps;
 	
 	public event EventHandler<int> AmmoUpdatedEventHandler;
+	public event EventHandler<float> CooldownUpdatedEventHandler;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready(){
@@ -42,6 +43,7 @@ public partial class Gun : Node2D{
 		else{
 			if (frenzyCooldownLeft > 0){
 				frenzyCooldownLeft -= (float)delta;
+				CooldownUpdatedEventHandler?.Invoke(this, frenzyCooldownLeft);
 				GD.Print(frenzyCooldownLeft);
 			}
 		}
