@@ -48,7 +48,6 @@ public partial class Player : CharacterBody2D{
 		dashDir = direction.Normalized();
 		dashTimeLeft = dashTime;
 		dashCooldownTime = dashCooldown;
-		
 		DashCooldownUpdatedEventHandler?.Invoke(this, dashCooldownTime);
 	}
 }

@@ -4,7 +4,6 @@ using System;
 public partial class RangedEnemy : CharacterBody2D{
 	
 	Player player;
-	
 	[Export] float speed = 250f;
 	
 	public override void _Ready(){

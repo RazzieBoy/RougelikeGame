@@ -18,8 +18,6 @@ public partial class Shotgun : Node2D{
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready(){
 		fireRate = 1 / bps;
-		//Timer reloadTimer = GetNode<Timer>("ReloadTimer");
-		//reloadTimer.Connect("timeout", this, "_on_timer_timeout");
 	}
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta){
