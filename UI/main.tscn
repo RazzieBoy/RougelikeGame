@@ -25,6 +25,7 @@ position = Vector2(531, 196)
 
 [node name="Pause" parent="." instance=ExtResource("5_2rvqq")]
 visible = false
+z_index = 6
 
 [node name="PlayerHUD" parent="." instance=ExtResource("6_nvtmb")]
 visibility_layer = 17

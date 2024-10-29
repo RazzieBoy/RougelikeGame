@@ -45,6 +45,25 @@ text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Primary" type="Label" parent="PrimaryBackground/Primary"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.667
+offset_top = -680.0
+offset_right = 221.333
+offset_bottom = -271.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 300
+text = "M1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="SecondaryBackground" type="Sprite2D" parent="."]
 position = Vector2(691, 482)
 scale = Vector2(0.15, 0.15)
@@ -65,6 +84,25 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 300
 text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Secondary" type="Label" parent="SecondaryBackground/Secondary"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -226.667
+offset_top = -666.667
+offset_right = 221.333
+offset_bottom = -257.667
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 300
+text = "M2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -91,6 +129,25 @@ text = "Dash"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Utility" type="Label" parent="UtilityBackground/Utility"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -366.667
+offset_top = -653.333
+offset_right = 364.333
+offset_bottom = -244.333
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 300
+text = "Shift"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="SpecialBackground" type="Sprite2D" parent="."]
 position = Vector2(902, 482)
 scale = Vector2(0.15, 0.15)
@@ -111,5 +168,24 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 300
 text = "Spe"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Special" type="Label" parent="SpecialBackground/Special"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -733.333
+offset_right = 246.0
+offset_bottom = -255.333
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 300
+text = "Q"
 horizontal_alignment = 1
 vertical_alignment = 1
