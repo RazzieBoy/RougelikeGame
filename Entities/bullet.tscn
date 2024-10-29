@@ -7,6 +7,8 @@
 size = Vector2(38, 38)
 
 [node name="Bullet" type="RigidBody2D"]
+light_mask = 32
+visibility_layer = 32
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1

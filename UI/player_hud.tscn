@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dox64bulxhul1"]
+[gd_scene load_steps=3 format=3 uid="uid://dox64bulxhul1"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerHud.cs" id="1_vhebq"]
+[ext_resource type="Texture2D" uid="uid://duirc275tjcij" path="res://Art/HUDBackground.png" id="2_mxmvb"]
 
 [node name="PlayerHUD" type="Control"]
 layout_mode = 3
@@ -13,84 +14,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vhebq")
 
-[node name="BoxContainer" type="BoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 586.0
-offset_top = 431.0
-offset_right = 949.0
-offset_bottom = 525.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="ColorRect4" type="ColorRect" parent="BoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(1, 0, 0, 1)
-
-[node name="ColorRect" type="ColorRect" parent="BoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0, 1, 0, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="BoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0, 0, 1, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="BoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0.87451, 0.584314, 1, 1)
-
-[node name="Primary" type="Label" parent="."]
-layout_mode = 2
-offset_left = 610.0
-offset_top = 455.0
-offset_right = 649.0
-offset_bottom = 502.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 34
-text = "10"
-
-[node name="Secondary" type="Label" parent="."]
-layout_mode = 2
-offset_left = 710.0
-offset_top = 456.0
-offset_right = 729.0
-offset_bottom = 503.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 34
-text = "3"
-
-[node name="Utility" type="Label" parent="."]
-layout_mode = 2
-offset_left = 773.0
-offset_top = 454.0
-offset_right = 856.0
-offset_bottom = 501.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 34
-text = "Dash"
-
-[node name="Special" type="Label" parent="."]
-layout_mode = 2
-offset_left = 871.0
-offset_top = 454.0
-offset_right = 930.0
-offset_bottom = 501.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 34
-text = "Spe"
-
 [node name="HPBar" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = -952.0
@@ -98,3 +21,95 @@ offset_top = -533.0
 offset_right = -521.0
 offset_bottom = -491.0
 color = Color(0.87451, 0.584314, 1, 1)
+
+[node name="PrimaryBackground" type="Sprite2D" parent="."]
+position = Vector2(585, 482)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_mxmvb")
+
+[node name="Primary" type="Label" parent="PrimaryBackground"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -510.5
+offset_top = -524.5
+offset_right = -129.5
+offset_bottom = -115.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 300
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SecondaryBackground" type="Sprite2D" parent="."]
+position = Vector2(691, 482)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_mxmvb")
+
+[node name="Secondary" type="Label" parent="SecondaryBackground"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -405.5
+offset_top = -524.5
+offset_right = -234.5
+offset_bottom = -115.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 300
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UtilityBackground" type="Sprite2D" parent="."]
+position = Vector2(797, 482)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_mxmvb")
+
+[node name="Utility" type="Label" parent="UtilityBackground"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -685.5
+offset_top = -524.5
+offset_right = 45.5
+offset_bottom = -115.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 300
+text = "Dash"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SpecialBackground" type="Sprite2D" parent="."]
+position = Vector2(902, 482)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_mxmvb")
+
+[node name="Special" type="Label" parent="SpecialBackground"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -583.0
+offset_top = -559.0
+offset_right = -57.0
+offset_bottom = -81.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 300
+text = "Spe"
+horizontal_alignment = 1
+vertical_alignment = 1

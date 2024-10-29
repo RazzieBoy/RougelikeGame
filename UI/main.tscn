@@ -27,6 +27,8 @@ position = Vector2(531, 196)
 visible = false
 
 [node name="PlayerHUD" parent="." instance=ExtResource("6_nvtmb")]
+visibility_layer = 17
+z_index = 5
 offset_left = 964.0
 offset_top = 552.0
 offset_right = 964.0
