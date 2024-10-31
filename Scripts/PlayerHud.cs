@@ -25,7 +25,6 @@ public partial class PlayerHud : Control{
 		healthBar.Color = healthColor; // Set to the specified color
 	}
 
-	
 	// Method to update ammo display, called by Main.cs
 	public void UpdateAmmoDisplayPrimary(object sender, int primaryAmmoCount){
 		primaryAmmoLabel.Text = $"{primaryAmmoCount}";
