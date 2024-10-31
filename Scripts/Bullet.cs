@@ -10,6 +10,8 @@ public partial class Bullet : RigidBody2D{
 		//Destroys the bullet after it has lived existed for x amount of time.
 		Timer timer = GetNode<Timer>("Timer");
 		timer.Timeout += () => QueueFree();
+		
+		Connect("body_entered", new Callable(this, nameof(OnBodyEntered)));
 		}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,10 +19,18 @@ public partial class Bullet : RigidBody2D{
 	}
 	//Checks if the bullets collide with the enemies, if so they send the damage value to the enemy which was hit
 	//and then destroys the bullet
-	public void OnBodyEntered(Node2D body){
-		if (body.IsInGroup("enemy")){
-			body.GetNode<Health>("Health").Damage(damage);
+	public void OnBodyEntered(Node2D body)
+{
+	GD.Print($"{Name} collided with {body.Name}");
+		if (body.IsInGroup("enemy"))
+		{
+			var health = body.GetNodeOrNull<EnemyHealth>("Health");
+			if (health != null)
+			{
+				GD.Print($"Damaging {body.Name}");
+				health.Damage(damage);
+			}
+			QueueFree();
 		}
-		QueueFree();
 	}
 }

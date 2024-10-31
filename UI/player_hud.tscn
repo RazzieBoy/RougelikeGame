@@ -14,7 +14,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vhebq")
 
-[node name="HPBar" type="ColorRect" parent="."]
+[node name="HealthBar" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = -952.0
 offset_top = -533.0

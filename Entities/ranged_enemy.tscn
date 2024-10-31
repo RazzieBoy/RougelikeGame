@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://uv8ufyssme5w"]
 
-[ext_resource type="Script" path="res://Scripts/Health.cs" id="1_h60n3"]
 [ext_resource type="Script" path="res://Scripts/RangedEnemy.cs" id="1_kiau5"]
+[ext_resource type="Script" path="res://Scripts/EnemyHealth.cs" id="2_evwer"]
 [ext_resource type="Texture2D" uid="uid://dyh210g8cm5ns" path="res://Art/redsquare.jpg" id="2_g7pqa"]
 [ext_resource type="Script" path="res://Scripts/EnemyGun.cs" id="5_21gvn"]
 [ext_resource type="PackedScene" uid="uid://dm6hufjpc7tkf" path="res://Entities/enemy_bullet.tscn" id="5_q364t"]
@@ -15,8 +15,8 @@ size = Vector2(77.5, 77)
 [node name="RangedEnemy" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_kiau5")
 
-[node name="Health" type="Node2D" parent="."]
-script = ExtResource("1_h60n3")
+[node name="Health" type="Node2D" parent="." groups=["enemy"]]
+script = ExtResource("2_evwer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_1v3oo")

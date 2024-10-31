@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_3drt3"]
 [ext_resource type="Texture2D" uid="uid://dylyukbvm63ex" path="res://Art/whitesquare.jpg" id="1_yyhsa"]
-[ext_resource type="Script" path="res://Scripts/Health.cs" id="2_oh0h3"]
+[ext_resource type="Script" path="res://Scripts/PlayerHealth.cs" id="2_7q7dt"]
 [ext_resource type="Script" path="res://Scripts/Gun.cs" id="3_oc4ss"]
 [ext_resource type="PackedScene" uid="uid://drttof0q7idxi" path="res://Entities/bullet.tscn" id="4_qwrt7"]
 [ext_resource type="Script" path="res://Scripts/Shotgun.cs" id="6_e52s3"]
@@ -14,8 +14,8 @@ size = Vector2(75, 75)
 motion_mode = 1
 script = ExtResource("1_3drt3")
 
-[node name="Health" type="Node2D" parent="."]
-script = ExtResource("2_oh0h3")
+[node name="Health" type="Node2D" parent="." groups=["player"]]
+script = ExtResource("2_7q7dt")
 
 [node name="GFX" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
@@ -35,12 +35,14 @@ one_shot = true
 [node name="Shotgun" type="Node2D" parent="."]
 
 [node name="Barrel1" type="Node2D" parent="Shotgun"]
-position = Vector2(70, -75)
+position = Vector2(70, -60)
+rotation = -0.261799
 script = ExtResource("6_e52s3")
 bulletScene = ExtResource("4_qwrt7")
 
 [node name="Barrel3" type="Node2D" parent="Shotgun"]
-position = Vector2(70, 75)
+position = Vector2(70, 60)
+rotation = 0.261799
 script = ExtResource("6_e52s3")
 bulletScene = ExtResource("4_qwrt7")
 

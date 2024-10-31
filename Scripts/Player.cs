@@ -14,7 +14,8 @@ public partial class Player : CharacterBody2D{
 	private float dashCooldownTime = 0f;
 	
 	public event EventHandler<float> DashCooldownUpdatedEventHandler;
-	
+	public event EventHandler<(float currentHealth, float maxHealth)> HealthUpdatedEventHandler; // This line defines the event
+
 	public override void _PhysicsProcess(double delta){
 		//Makes the player always look at where the computer mouse is located
 		LookAt(GetGlobalMousePosition());
@@ -49,5 +50,17 @@ public partial class Player : CharacterBody2D{
 		dashTimeLeft = dashTime;
 		dashCooldownTime = dashCooldown;
 		DashCooldownUpdatedEventHandler?.Invoke(this, dashCooldownTime);
+	}
+	
+	public void TakeDamage(float damage){
+		var playerHealth = GetNode<PlayerHealth>("Health"); // Adjust path as needed
+		playerHealth.Damage(damage);
+		HealthUpdatedEventHandler?.Invoke(this, (playerHealth.HealthValue, playerHealth.maxHealth)); // Notify about health change
+	}
+
+	public void Heal(float amount){
+		var playerHealth = GetNode<PlayerHealth>("Health"); // Adjust path as needed
+		playerHealth.Heal(amount);
+		HealthUpdatedEventHandler?.Invoke(this, (playerHealth.HealthValue, playerHealth.maxHealth)); // Notify about health change
 	}
 }
