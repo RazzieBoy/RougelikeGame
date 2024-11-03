@@ -23,7 +23,7 @@ offset_bottom = -491.0
 color = Color(0.87451, 0.584314, 1, 1)
 
 [node name="PrimaryBackground" type="Sprite2D" parent="."]
-position = Vector2(585, 482)
+position = Vector2(575, 472)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_mxmvb")
 
@@ -44,6 +44,7 @@ theme_override_font_sizes/font_size = 300
 text = "10"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Primary" type="Label" parent="PrimaryBackground/Primary"]
 layout_mode = 1
@@ -63,9 +64,10 @@ theme_override_font_sizes/font_size = 300
 text = "M1"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="SecondaryBackground" type="Sprite2D" parent="."]
-position = Vector2(691, 482)
+position = Vector2(681, 472)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_mxmvb")
 
@@ -86,6 +88,7 @@ theme_override_font_sizes/font_size = 300
 text = "3"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Secondary" type="Label" parent="SecondaryBackground/Secondary"]
 layout_mode = 1
@@ -105,9 +108,10 @@ theme_override_font_sizes/font_size = 300
 text = "M2"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="UtilityBackground" type="Sprite2D" parent="."]
-position = Vector2(797, 482)
+position = Vector2(787, 472)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_mxmvb")
 
@@ -128,6 +132,7 @@ theme_override_font_sizes/font_size = 300
 text = "Dash"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Utility" type="Label" parent="UtilityBackground/Utility"]
 layout_mode = 1
@@ -147,9 +152,10 @@ theme_override_font_sizes/font_size = 300
 text = "Shift"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="SpecialBackground" type="Sprite2D" parent="."]
-position = Vector2(902, 482)
+position = Vector2(892, 472)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_mxmvb")
 
@@ -170,6 +176,7 @@ theme_override_font_sizes/font_size = 300
 text = "Spe"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Special" type="Label" parent="SpecialBackground/Special"]
 layout_mode = 1
@@ -189,3 +196,4 @@ theme_override_font_sizes/font_size = 300
 text = "Q"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

@@ -32,13 +32,13 @@ z_index = 6
 [node name="PlayerHUD" parent="." instance=ExtResource("6_nvtmb")]
 visibility_layer = 17
 z_index = 5
-offset_left = 954.0
-offset_top = 534.0
-offset_right = 954.0
-offset_bottom = 534.0
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 960.0
+offset_bottom = 540.0
 
-[node name="Node2D" parent="." instance=ExtResource("8_tvmo2")]
-position = Vector2(1179, 239)
+[node name="DamageNode" parent="." instance=ExtResource("9_x4088")]
+position = Vector2(1626, 586)
 
-[node name="Node2D2" parent="." instance=ExtResource("9_x4088")]
-position = Vector2(1610, 352)
+[node name="SpeedNode" parent="." instance=ExtResource("8_tvmo2")]
+position = Vector2(1368, 171)

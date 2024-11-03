@@ -6,7 +6,7 @@ public partial class SpeedItem : ItemStatModifier
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		speedModifier = 10f;
+		speedModifier = 75f;
 		damageModifier = 0f;
 		GetNode<Area2D>("Area2D").BodyEntered += OnBodyEntered;
 	}
