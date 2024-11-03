@@ -38,7 +38,6 @@ public partial class MeleeEnemy : CharacterBody2D{
 		else{
 			Velocity = Vector2.Zero;
 		}
-		
 		MoveAndSlide();
 	}
 	

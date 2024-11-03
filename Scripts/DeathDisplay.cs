@@ -1,8 +1,7 @@
 using Godot;
 using System;
 
-public partial class DeathDisplay : Control
-{
+public partial class DeathDisplay : Control{
 	
 	private void _on_button_pressed(){
 		GetTree().ChangeSceneToFile("res://UI/main_menu.tscn");

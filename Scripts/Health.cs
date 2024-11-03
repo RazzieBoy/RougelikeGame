@@ -1,8 +1,7 @@
 using Godot;
 using System;
 
-public partial class Health : Node2D
-{
+public partial class Health : Node2D{
 	[Export] public float maxHealth = 10f;
 	protected float health;
 

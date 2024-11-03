@@ -11,6 +11,8 @@
 size = Vector2(75, 75)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 9
+collision_mask = 9
 motion_mode = 1
 script = ExtResource("1_3drt3")
 
@@ -25,7 +27,7 @@ texture = ExtResource("1_yyhsa")
 shape = SubResource("RectangleShape2D_mim04")
 
 [node name="Gun" type="Node2D" parent="."]
-position = Vector2(70, 0)
+position = Vector2(47, 0)
 script = ExtResource("3_oc4ss")
 bulletScene = ExtResource("4_qwrt7")
 
@@ -35,18 +37,18 @@ one_shot = true
 [node name="Shotgun" type="Node2D" parent="."]
 
 [node name="Barrel1" type="Node2D" parent="Shotgun"]
-position = Vector2(70, -60)
+position = Vector2(47, -60)
 rotation = -0.261799
 script = ExtResource("6_e52s3")
 bulletScene = ExtResource("4_qwrt7")
 
 [node name="Barrel3" type="Node2D" parent="Shotgun"]
-position = Vector2(70, 60)
+position = Vector2(47, 60)
 rotation = 0.261799
 script = ExtResource("6_e52s3")
 bulletScene = ExtResource("4_qwrt7")
 
 [node name="Barrel2" type="Node2D" parent="Shotgun"]
-position = Vector2(70, 0)
+position = Vector2(47, 0)
 script = ExtResource("6_e52s3")
 bulletScene = ExtResource("4_qwrt7")

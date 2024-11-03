@@ -6,7 +6,7 @@ public partial class Gun : Node2D{
 	[Export] PackedScene bulletScene;
 	[Export] float bulletSpeed = 700f;
 	[Export] float bps = 5;
-	[Export] float bulletDamage = 2f;
+	[Export] public float bulletDamage = 2f;
 	[Export] float frenzyTime = 3f;
 	[Export] public float frenzyCooldown = 30f; 
 	
@@ -55,9 +55,17 @@ public partial class Gun : Node2D{
 				bullet.Rotation = GlobalRotation;
 				bullet.GlobalPosition = GlobalPosition;
 				bullet.LinearVelocity = bullet.Transform.X * bulletSpeed;
+
+				// Set bullet's damage based on gun's bulletDamage
+				Bullet bulletScript = bullet as Bullet; // Assuming Bullet script is attached to the bullet scene
+				if (bulletScript != null){
+					bulletScript.damage = bulletDamage;
+					GD.Print("Bullet damage set to: " + bulletDamage); // For debugging
+				}
+
 				GetTree().Root.AddChild(bullet);
 				attackCooldown = 0f;
-				
+
 				if (!isFrenzy){
 					primaryAmmoCount--;
 					UpdateAmmo();

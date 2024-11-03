@@ -19,14 +19,11 @@ public partial class EnemyBullet : RigidBody2D{
 	}
 	//Checks if the bullets collide with the enemies, if so they send the damage value to the enemy which was hit
 	//and then destroys the bullet
-	public void OnBodyEntered(Node2D body)
-	{
+	public void OnBodyEntered(Node2D body){
 		GD.Print($"{Name} collided with {body.Name}");
-		if (body.IsInGroup("player"))
-		{
+		if (body.IsInGroup("player")){
 			var health = body.GetNodeOrNull<PlayerHealth>("Health");
-			if (health != null)
-			{
+			if (health != null){
 				GD.Print($"Damaging {body.Name}");
 				health.Damage(damage);
 			}

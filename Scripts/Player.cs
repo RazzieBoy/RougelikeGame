@@ -16,6 +16,14 @@ public partial class Player : CharacterBody2D{
 	public event EventHandler<float> DashCooldownUpdatedEventHandler;
 	public event EventHandler<(float currentHealth, float maxHealth)> HealthUpdatedEventHandler; // This line defines the event
 
+	private uint originalCollisionLayer;
+	private uint originalCollisionMask;
+	
+	public override void _Ready(){
+		originalCollisionLayer = CollisionLayer;
+		originalCollisionMask = CollisionMask;
+	}
+
 	public override void _PhysicsProcess(double delta){
 		//Makes the player always look at where the computer mouse is located
 		LookAt(GetGlobalMousePosition());
@@ -30,6 +38,8 @@ public partial class Player : CharacterBody2D{
 			
 			if (dashTimeLeft <= 0){
 				dashing = false;
+				CollisionLayer = originalCollisionLayer;
+				CollisionMask = originalCollisionMask;
 			}
 		}
 		else{
@@ -49,6 +59,8 @@ public partial class Player : CharacterBody2D{
 		dashDir = direction.Normalized();
 		dashTimeLeft = dashTime;
 		dashCooldownTime = dashCooldown;
+		CollisionLayer = 5;
+		CollisionMask = 0; // Temporarily disable collision with everything
 		DashCooldownUpdatedEventHandler?.Invoke(this, dashCooldownTime);
 	}
 	
@@ -62,5 +74,22 @@ public partial class Player : CharacterBody2D{
 		var playerHealth = GetNode<PlayerHealth>("Health"); // Adjust path as needed
 		playerHealth.Heal(amount);
 		HealthUpdatedEventHandler?.Invoke(this, (playerHealth.HealthValue, playerHealth.maxHealth)); // Notify about health change
+	}
+
+	public void ModifySpeed(float speedValue){
+		speed += speedValue;
+	}
+	
+	public void ModifyDamage(float damageValue){
+		var gun = GetNode<Gun>("Gun");
+		if (gun != null)
+		{
+			gun.bulletDamage += damageValue;
+			GD.Print("Damage modified. New bullet damage: " + gun.bulletDamage);
+		}
+		else
+		{
+			GD.Print("Gun node not found!");
+		}
 	}
 }

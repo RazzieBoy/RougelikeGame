@@ -1,8 +1,7 @@
 using Godot;
 using System;
 
-public partial class PlayerHealth : Health
-{
+public partial class PlayerHealth : Health{
 	public new float HealthValue => health;
 
 	// Ensure you have using System; at the top for EventHandler

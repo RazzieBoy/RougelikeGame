@@ -22,11 +22,9 @@ public partial class Bullet : RigidBody2D{
 	public void OnBodyEntered(Node2D body)
 {
 	GD.Print($"{Name} collided with {body.Name}");
-		if (body.IsInGroup("enemy"))
-		{
+		if (body.IsInGroup("enemy")){
 			var health = body.GetNodeOrNull<EnemyHealth>("Health");
-			if (health != null)
-			{
+			if (health != null){
 				GD.Print($"Damaging {body.Name}");
 				health.Damage(damage);
 			}
