@@ -10,7 +10,6 @@ public partial class Bullet : RigidBody2D{
 		//Destroys the bullet after it has lived existed for x amount of time.
 		Timer timer = GetNode<Timer>("Timer");
 		timer.Timeout += () => QueueFree();
-		
 		Connect("body_entered", new Callable(this, nameof(OnBodyEntered)));
 		}
 

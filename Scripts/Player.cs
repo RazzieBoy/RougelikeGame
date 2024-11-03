@@ -82,13 +82,11 @@ public partial class Player : CharacterBody2D{
 	
 	public void ModifyDamage(float damageValue){
 		var gun = GetNode<Gun>("Gun");
-		if (gun != null)
-		{
+		if (gun != null){
 			gun.bulletDamage += damageValue;
 			GD.Print("Damage modified. New bullet damage: " + gun.bulletDamage);
 		}
-		else
-		{
+		else{
 			GD.Print("Gun node not found!");
 		}
 	}
