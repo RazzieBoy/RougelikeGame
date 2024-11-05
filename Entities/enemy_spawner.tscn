@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://derv50hpb76sx"]
+
+[ext_resource type="Script" path="res://Scripts/EnemySpawner.cs" id="1_8042j"]
+[ext_resource type="PackedScene" uid="uid://blv0f1ln71nmk" path="res://Entities/melee_enemy.tscn" id="2_m4gle"]
+[ext_resource type="PackedScene" uid="uid://uv8ufyssme5w" path="res://Entities/ranged_enemy.tscn" id="3_cvpof"]
+
+[node name="EnemySpawner" type="Node2D"]
+script = ExtResource("1_8042j")
+meleeEnemyScene = ExtResource("2_m4gle")
+rangedEnemyScene = ExtResource("3_cvpof")
