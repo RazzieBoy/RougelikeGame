@@ -3,28 +3,36 @@ using System;
 using System.Collections.Generic;
 
 public partial class ItemManager : Node2D{
-	private List<PackedScene> itemList = new List<PackedScene>();
-
+	
+	[Export] public PackedScene SpeedItemScene {get; set;}
+	[Export] public PackedScene DamageItemScene {get; set;}
+	
+	private List<PackedScene> itemList;
+	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready(){
-		AddItem(ResourceLoader.Load<PackedScene>("res://Entities/speedItem.tscn"));
-		AddItem(ResourceLoader.Load<PackedScene>("res://Entities/damageItem.tscn"));
+		itemList = new List<PackedScene> { SpeedItemScene, DamageItemScene };
 	}
 
-	public void AddItem(PackedScene itemScene){ // Ensure the method name is consistent
-		itemList.Add(itemScene);
-	}
+	//public void AddItem(PackedScene itemScene){ // Ensure the method name is consistent
+		//itemList.Add(itemScene);
+	//}
 
-	public PackedScene GetRandomItem(float spawnChance){
+	public PackedScene GetRandomItem(float spawnChance)
+	{
 		RandomNumberGenerator rng = new RandomNumberGenerator();
 		rng.Randomize();
 
-		if (rng.Randf() <= spawnChance){
-			int randomIndex = (int)(rng.Randi() % itemList.Count);
+		if (rng.Randf() <= spawnChance && itemList.Count > 0)
+		{
+			int randomIndex = rng.RandiRange(0, itemList.Count - 1);
+			GD.Print("Selected item index: " + randomIndex);
 			return itemList[randomIndex];
 		}
-		return null;
-	}
+
+		GD.Print("No item selected due to probability check.");
+		return null; // No item selected
+}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)

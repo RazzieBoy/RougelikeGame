@@ -19,6 +19,8 @@ public partial class Player : CharacterBody2D{
 	private uint originalCollisionLayer;
 	private uint originalCollisionMask;
 	
+	private Shop shop;
+	
 	public override void _Ready(){
 		originalCollisionLayer = CollisionLayer;
 		originalCollisionMask = CollisionMask;
@@ -49,6 +51,13 @@ public partial class Player : CharacterBody2D{
 			
 			if (Input.IsActionJustPressed("utility") && dashCooldownTime <= 0 && move_input != Vector2.Zero){
 				StartDash(move_input);
+			}
+			
+			if (shop != null && Input.IsActionJustPressed("ui_accept")) // Ensure "ui_accept" is mapped to "T"
+			{
+				GD.Print("Interacted with the object!");
+				// Call any interaction method on currentInteractable if necessary
+				// currentInteractable.Interact();
 			}
 		}
 		MoveAndSlide();
@@ -89,5 +98,15 @@ public partial class Player : CharacterBody2D{
 		else{
 			GD.Print("Gun node not found!");
 		}
+	}
+	
+	public void SetShop(Shop interactShop) // Change to public
+	{
+		shop = interactShop;
+	}
+
+	public void ClearShop() // Change to public
+	{
+		shop = null;
 	}
 }

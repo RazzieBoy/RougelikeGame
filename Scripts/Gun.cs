@@ -44,7 +44,7 @@ public partial class Gun : Node2D{
 			if (frenzyCooldownLeft > 0){
 				frenzyCooldownLeft -= (float)delta;
 				CooldownUpdatedEventHandler?.Invoke(this, frenzyCooldownLeft);
-				GD.Print(frenzyCooldownLeft);
+				//GD.Print(frenzyCooldownLeft);dw
 			}
 		}
 		//Players primary Attack methods used via the Left mouse button

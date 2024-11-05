@@ -3,8 +3,8 @@ using System;
 
 public partial class MeleeEnemy : CharacterBody2D{
 	
-	Player player;
-	ItemManager itemManager;
+	private Player player;
+	private ItemManager itemManager;
 	
 	[Export] float speed = 250f;
 	[Export] float damage = 2f;
@@ -15,20 +15,26 @@ public partial class MeleeEnemy : CharacterBody2D{
 	bool inRange = false;
 	
 	public override void _Ready(){
-		player = (Player)GetTree().Root.GetNode("Main").GetNode("Player");
-		itemManager = (ItemManager)GetTree().Root.GetNode<ItemManager>(".");
+		var mainScene = (Main)GetTree().Root.GetNode("Main");
+		player = mainScene.GetNode<Player>("Player");
+		itemManager = mainScene.GetItemManager();
+		
 		attackRate = 1 / aps;
 		attackCooldown = attackRate;
 	}
 	
 	public void DropItem()
 	{
-		PackedScene itemToDrop = itemManager.GetRandomItem(0.9f); // 10% chance
-		if (itemToDrop != null)
-		{
+		if (itemManager == null){
+			GD.PrintErr("ItemManager Not Found!");
+			return;
+		}
+		
+		PackedScene itemToDrop = itemManager.GetRandomItem(0.2f);
+		if (itemToDrop != null){
 			Node2D itemInstance = itemToDrop.Instantiate<Node2D>();
-			itemInstance.GlobalPosition = GlobalPosition; // Use GlobalPosition if it extends Node2D
-			GetTree().Root.AddChild(itemInstance); // Add to the scene
+			itemInstance.GlobalPosition = GlobalPosition;
+			GetTree().Root.AddChild(itemInstance);
 		}
 	}
 
