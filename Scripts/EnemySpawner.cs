@@ -7,8 +7,10 @@ public partial class EnemySpawner : Node2D{
 	[Export] public float spawnRate = 2f;
 	[Export] public Vector2 spawnAreaMin;
 	[Export] public Vector2 spawnAreaMax;
+	[Export] public float maxSpawnCount = 5;
 	
 	private float spawnCooldown = 0f;
+	private float totalSpawnedEnemies = 0;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready(){
@@ -16,9 +18,10 @@ public partial class EnemySpawner : Node2D{
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta){
-		if (spawnCooldown <= 0){
+		if (spawnCooldown <= 0 && totalSpawnedEnemies < maxSpawnCount){
 			SpawnEnemy();
 			spawnCooldown = spawnRate;
+			
 		}
 		else
 		{
@@ -37,5 +40,7 @@ public partial class EnemySpawner : Node2D{
 		Node2D enemyInstance = enemyScene.Instantiate<Node2D>();
 		enemyInstance.Position = spawnPosition;
 		AddChild(enemyInstance);
+		
+		totalSpawnedEnemies++; // Increment the total spawn count
 	}
 }
