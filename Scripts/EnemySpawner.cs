@@ -23,6 +23,7 @@ public partial class EnemySpawner : Node2D{
 	private bool hasEnemiesSpawned = false;
 	//List for enemies that are alive
 	private List<Node2D> activeEnemies = new List<Node2D>();
+	private List<Node2D> activeItems = new List<Node2D>();
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready(){
@@ -38,10 +39,13 @@ public partial class EnemySpawner : Node2D{
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta){
 		 UpdateSpawnArea();
-		if (spawnCooldown <= 0 && totalSpawnedEnemies < maxSpawnCount && !hasEnemiesSpawned){
+		
+		
+		
+		if (activeItems.Count == 0 && spawnCooldown <= 0 && totalSpawnedEnemies < maxSpawnCount && !hasEnemiesSpawned){
 			hasEnemiesSpawned = true;
 		}
-		else{
+		else if(activeItems.Count == 0){
 			spawnCooldown -= (float)delta;
 		}
 		if (hasEnemiesSpawned && spawnCooldown <= 0){
@@ -54,7 +58,9 @@ public partial class EnemySpawner : Node2D{
 			SpawnItem();
 			spawnCooldown = 5f;
 			totalSpawnedEnemies = 0f;
+			maxSpawnCount = maxSpawnCount + 1;
 		}
+		activeItems.RemoveAll(item => !IsInstanceValid(item));
 	}
 	
 	private void UpdateSpawnArea(){
@@ -101,5 +107,6 @@ public partial class EnemySpawner : Node2D{
 		Node2D itemInstance = itemScene.Instantiate<Node2D>();
 		itemInstance.Position = itemSpawnPosition;
 		AddChild(itemInstance);
+		activeItems.Add(itemInstance);
 	}
 }

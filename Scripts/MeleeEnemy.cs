@@ -17,7 +17,6 @@ public partial class MeleeEnemy : CharacterBody2D{
 	public override void _Ready(){
 		var mainScene = (Main)GetTree().Root.GetNode("Main");
 		player = mainScene.GetNode<Player>("Player");
-		itemManager = mainScene.GetItemManager();
 		
 		attackRate = 1 / aps;
 		attackCooldown = attackRate;
@@ -25,11 +24,6 @@ public partial class MeleeEnemy : CharacterBody2D{
 	
 	public void DropItem()
 	{
-		if (itemManager == null){
-			//GD.PrintErr("ItemManager Not Found!");
-			return;
-		}
-		
 		PackedScene itemToDrop = itemManager.GetRandomItem(0.2f);
 		if (itemToDrop != null){
 			Node2D itemInstance = itemToDrop.Instantiate<Node2D>();
@@ -76,10 +70,5 @@ public partial class MeleeEnemy : CharacterBody2D{
 			inRange = false;
 			attackCooldown = attackRate;
 		}
-	}
-	
-	public void Die(){
-		DropItem();
-		QueueFree();
 	}
 }
