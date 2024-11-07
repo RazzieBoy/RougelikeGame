@@ -2,6 +2,7 @@ using Godot;
 using System;
 
 public partial class DamageItem : ItemStatModifier{
+	
 	public override void _Ready(){
 		speedModifier = 0f;
 		damageModifier = 1f;

@@ -4,9 +4,11 @@ using System;
 // Ensure EnemyHealth inherits from Health
 public partial class EnemyHealth : Health{
 	public override void Damage(float damage){
-		if (GetParent().IsInGroup("enemy")){ // Only takes damage from players{
-			GD.Print("Calling base damage on enemy or player"); // Debug
-			base.Damage(damage); // This will call the Health class's Damage method
+		//Makes sure to check to only take damage from the player.
+		if (GetParent().IsInGroup("enemy")){ 
+			GD.Print("Calling base damage on enemy or player");
+			//This will call the Health class's Damage method
+			base.Damage(damage);
 		}
 	}
 }

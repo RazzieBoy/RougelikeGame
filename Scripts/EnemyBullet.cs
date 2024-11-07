@@ -2,7 +2,7 @@ using Godot;
 using System;
 
 public partial class EnemyBullet : RigidBody2D{
-	
+	//Float that holds the value of the bullets damage
 	[Export] public float damage = 2f;
 	
 	// Called when the node enters the scene tree for the first time.
