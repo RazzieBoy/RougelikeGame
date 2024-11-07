@@ -12,8 +12,8 @@ public partial class EnemySpawner : Node2D{
 	[Export] public float spawnRate = 2f;
 	[Export] public float maxSpawnCount;
 	//Vectors that determine the size of the area where enemies and items can spawn
-	[Export] public Vector2 spawnAreaMin = new Vector2(-400, -400);
-	[Export] public Vector2 spawnAreaMax = new Vector2(400, 400);
+	private Vector2 spawnAreaMin;
+	private Vector2 spawnAreaMax;
 	//Get's the player node so it can be referenced easily
 	[Export] public Node2D player;
 	//Floats for how many enemies have spawned and sets the cooldown to 0
@@ -29,7 +29,7 @@ public partial class EnemySpawner : Node2D{
 		//Sets the max enemy spawn count to 5 at the start
 		maxSpawnCount = 5;
 		if (player == null) {
-			GD.PrintErr("Player node is not assigned!");
+			//GD.PrintErr("Player node is not assigned!");
 		}
 		//Sets the spawn cooldown to the spawnrate
 		spawnCooldown = spawnRate;
@@ -37,6 +37,7 @@ public partial class EnemySpawner : Node2D{
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta){
+		 UpdateSpawnArea();
 		if (spawnCooldown <= 0 && totalSpawnedEnemies < maxSpawnCount && !hasEnemiesSpawned){
 			hasEnemiesSpawned = true;
 		}
@@ -56,6 +57,15 @@ public partial class EnemySpawner : Node2D{
 		}
 	}
 	
+	private void UpdateSpawnArea(){
+		Rect2 visibleRect = GetViewport().GetVisibleRect();
+		Vector2 screenSize = visibleRect.Size;
+		
+		spawnAreaMin = new Vector2(50, 50);
+		spawnAreaMax = new Vector2(screenSize.X - 50, screenSize.Y - 200);
+		spawnAreaMax.X = Mathf.Min(spawnAreaMax.X, screenSize.X - 50);
+	}
+	
 	private void SpawnEnemy(){
 		RandomNumberGenerator rng = new RandomNumberGenerator();
 		rng.Randomize();
@@ -66,7 +76,7 @@ public partial class EnemySpawner : Node2D{
 		Vector2 spawnPosition;
 		do {
 			spawnPosition = new Vector2(rng.RandfRange(spawnAreaMin.X, spawnAreaMax.X), rng.RandfRange(spawnAreaMin.Y, spawnAreaMax.Y));
-		} while (player != null && player.Position.DistanceTo(spawnPosition) < 100);
+		} while (player != null && player.Position.DistanceTo(spawnPosition) < 200);
 		
 		Node2D enemyInstance = enemyScene.Instantiate<Node2D>();
 		enemyInstance.Position = spawnPosition;

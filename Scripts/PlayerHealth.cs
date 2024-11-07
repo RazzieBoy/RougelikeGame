@@ -10,7 +10,7 @@ public partial class PlayerHealth : Health{
 	public override void Damage(float damage){
 		if (GetParent().IsInGroup("player")){ // Only takes damage from enemies
 			base.Damage(damage);
-			GD.Print("PlayerDamage");
+			//GD.Print("PlayerDamage");
 			// Notify listeners about health update after taking damage
 			HealthUpdatedEventHandler?.Invoke(this, (health, maxHealth));
 		}

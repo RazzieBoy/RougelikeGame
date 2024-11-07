@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dylyukbvm63ex" path="res://Art/whitesquare.jpg" id="2_eosmi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgfyt"]
-size = Vector2(38, 38)
+size = Vector2(23, 23)
 
 [node name="EnemyBullet" type="RigidBody2D"]
 collision_layer = 8
@@ -15,7 +15,7 @@ max_contacts_reported = 1
 script = ExtResource("1_eyiuw")
 
 [node name="Whitesquare" type="Sprite2D" parent="."]
-scale = Vector2(0.025, 0.025)
+scale = Vector2(0.015, 0.015)
 texture = ExtResource("2_eosmi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

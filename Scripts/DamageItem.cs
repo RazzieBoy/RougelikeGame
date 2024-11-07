@@ -11,7 +11,7 @@ public partial class DamageItem : ItemStatModifier{
 
 	public override void ApplyModification(Player player){
 		player.ModifyDamage(damageModifier);
-		GD.Print("Applied damage modifier of " + damageModifier);
+		//GD.Print("Applied damage modifier of " + damageModifier);
 	}
 
 	private void OnBodyEntered(Node body){

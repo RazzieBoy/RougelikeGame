@@ -3,7 +3,7 @@ using System;
 
 public partial class Player : CharacterBody2D{
 	//Allows for simple debbuing to change the speed in the inspector
-	[Export] public float speed = 300f;
+	[Export] public float speed = 150f;
 	[Export] public float dashSpeed = 1000f;
 	[Export] public float dashTime = 0.2f;
 	[Export] public float dashCooldown = 2f;
@@ -18,8 +18,6 @@ public partial class Player : CharacterBody2D{
 
 	private uint originalCollisionLayer;
 	private uint originalCollisionMask;
-	
-	private Shop shop;
 	
 	public override void _Ready(){
 		originalCollisionLayer = CollisionLayer;
@@ -49,17 +47,22 @@ public partial class Player : CharacterBody2D{
 			Vector2 move_input = Input.GetVector("move_left","move_right","move_up","move_down");
 			Velocity = move_input * speed;
 			
+			Vector2 viewportSize = GetViewportRect().Size;
+			Vector2 newPosition = Position + Velocity * (float)delta;
+			CollisionShape2D collisionShape = GetNode<CollisionShape2D>("CollisionShape2D"); // Adjust the path as necessary
+			Rect2 shapeRect = collisionShape.Shape.GetRect(); // Assumes it's a RectangleShape2D
+			float playerWidth = shapeRect.Size.X;
+			float playerHeight = shapeRect.Size.Y;
+			newPosition.X = Mathf.Clamp(newPosition.X, 50 + playerWidth / 2, viewportSize.X - 50 - playerWidth / 2);
+			newPosition.Y = Mathf.Clamp(newPosition.Y, 50 + playerHeight / 2, viewportSize.Y - 200 - playerHeight / 2);
+
+			Position = newPosition;
+			
 			if (Input.IsActionJustPressed("utility") && dashCooldownTime <= 0 && move_input != Vector2.Zero){
 				StartDash(move_input);
 			}
-			
-			if (shop != null && Input.IsActionJustPressed("ui_accept")) // Ensure "ui_accept" is mapped to "T"
-			{
-				GD.Print("Interacted with the object!");
-				// Call any interaction method on currentInteractable if necessary
-				// currentInteractable.Interact();
-			}
 		}
+		
 		MoveAndSlide();
 	}
 	
@@ -93,20 +96,7 @@ public partial class Player : CharacterBody2D{
 		var gun = GetNode<Gun>("Gun");
 		if (gun != null){
 			gun.bulletDamage += damageValue;
-			GD.Print("Damage modified. New bullet damage: " + gun.bulletDamage);
+			//GD.Print("Damage modified. New bullet damage: " + gun.bulletDamage);
 		}
-		else{
-			GD.Print("Gun node not found!");
-		}
-	}
-	
-	public void SetShop(Shop interactShop) // Change to public
-	{
-		shop = interactShop;
-	}
-
-	public void ClearShop() // Change to public
-	{
-		shop = null;
 	}
 }

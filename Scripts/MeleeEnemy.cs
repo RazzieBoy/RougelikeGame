@@ -26,7 +26,7 @@ public partial class MeleeEnemy : CharacterBody2D{
 	public void DropItem()
 	{
 		if (itemManager == null){
-			GD.PrintErr("ItemManager Not Found!");
+			//GD.PrintErr("ItemManager Not Found!");
 			return;
 		}
 		
@@ -61,7 +61,7 @@ public partial class MeleeEnemy : CharacterBody2D{
 	}
 	
 	public void Attack(){
-		GD.Print("Attack player");
+		//GD.Print("Attack player");
 		player.GetNode<Health>("Health").Damage(damage);
 	}
 	

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dylyukbvm63ex" path="res://Art/whitesquare.jpg" id="2_mpphd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgfyt"]
-size = Vector2(38, 38)
+size = Vector2(23, 23)
 
 [node name="Bullet" type="RigidBody2D"]
 light_mask = 32
@@ -17,7 +17,7 @@ max_contacts_reported = 1
 script = ExtResource("1_no6ua")
 
 [node name="Whitesquare" type="Sprite2D" parent="."]
-scale = Vector2(0.025, 0.025)
+scale = Vector2(0.015, 0.015)
 texture = ExtResource("2_mpphd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

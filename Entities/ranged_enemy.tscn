@@ -7,10 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dm6hufjpc7tkf" path="res://Entities/enemy_bullet.tscn" id="5_q364t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1v3oo"]
-size = Vector2(77.5, 77)
+size = Vector2(44, 45)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohxnt"]
-size = Vector2(77.5, 77)
+size = Vector2(45, 45)
 
 [node name="RangedEnemy" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 7
@@ -23,7 +23,7 @@ script = ExtResource("2_evwer")
 shape = SubResource("RectangleShape2D_1v3oo")
 
 [node name="EnemyGFX" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.03, 0.03)
 texture = ExtResource("2_g7pqa")
 
 [node name="Gun" type="Node2D" parent="."]
@@ -34,5 +34,4 @@ bulletScene = ExtResource("5_q364t")
 [node name="AttackRange" type="Area2D" parent="." groups=["enemy"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
-position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_ohxnt")

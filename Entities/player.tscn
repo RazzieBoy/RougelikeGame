@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/Shotgun.cs" id="6_e52s3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mim04"]
-size = Vector2(75, 75)
+size = Vector2(45, 45)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 9
@@ -20,7 +20,7 @@ script = ExtResource("1_3drt3")
 script = ExtResource("2_7q7dt")
 
 [node name="GFX" type="Sprite2D" parent="."]
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.03, 0.03)
 texture = ExtResource("1_yyhsa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -37,13 +37,13 @@ one_shot = true
 [node name="Shotgun" type="Node2D" parent="."]
 
 [node name="Barrel1" type="Node2D" parent="Shotgun"]
-position = Vector2(47, -60)
+position = Vector2(47, -45)
 rotation = -0.261799
 script = ExtResource("6_e52s3")
 bulletScene = ExtResource("4_qwrt7")
 
 [node name="Barrel3" type="Node2D" parent="Shotgun"]
-position = Vector2(47, 60)
+position = Vector2(47, 45)
 rotation = 0.261799
 script = ExtResource("6_e52s3")
 bulletScene = ExtResource("4_qwrt7")

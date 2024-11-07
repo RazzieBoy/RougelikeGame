@@ -4,7 +4,7 @@ using System;
 public partial class Gun : Node2D{
 	
 	[Export] PackedScene bulletScene;
-	[Export] float bulletSpeed = 700f;
+	[Export] float bulletSpeed = 800f;
 	[Export] float bps = 5;
 	[Export] public float bulletDamage = 2f;
 	[Export] float frenzyTime = 3f;
@@ -58,7 +58,7 @@ public partial class Gun : Node2D{
 				Bullet bulletScript = bullet as Bullet; // Assuming Bullet script is attached to the bullet scene
 				if (bulletScript != null){
 					bulletScript.damage = bulletDamage;
-					GD.Print("Bullet damage set to: " + bulletDamage); // For debugging
+					//GD.Print("Bullet damage set to: " + bulletDamage); // For debugging
 				}
 				GetTree().Root.AddChild(bullet);
 				attackCooldown = 0f;

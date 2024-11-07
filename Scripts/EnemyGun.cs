@@ -6,7 +6,7 @@ public partial class EnemyGun : Node2D{
 	//Gets the bullet entity
 	[Export] PackedScene bulletScene;
 	//Floats that hold value of the bullet speed and how quick the gun can be fired
-	[Export] float bulletSpeed = 700f;
+	[Export] float bulletSpeed = 800f;
 	[Export] float shootCooldown = 1f;
 	//Get's the player node so it can be referenced easily
 	private Node2D player;

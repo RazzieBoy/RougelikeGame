@@ -26,11 +26,11 @@ public partial class ItemManager : Node2D{
 		if (rng.Randf() <= spawnChance && itemList.Count > 0)
 		{
 			int randomIndex = rng.RandiRange(0, itemList.Count - 1);
-			GD.Print("Selected item index: " + randomIndex);
+			//GD.Print("Selected item index: " + randomIndex);
 			return itemList[randomIndex];
 		}
 
-		GD.Print("No item selected due to probability check.");
+		//GD.Print("No item selected due to probability check.");
 		return null; // No item selected
 }
 

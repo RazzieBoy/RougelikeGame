@@ -7,15 +7,15 @@ public partial class Health : Node2D{
 
 	public override void _Ready(){
 		health = maxHealth;
-		GD.Print($"{GetParent().Name} initialized with {health} health.");
+		//GD.Print($"{GetParent().Name} initialized with {health} health.");
 	}
 
 	public virtual void Damage(float damage){
 		health -= damage;
-		GD.Print($"{GetParent().Name} took {damage} damage. Remaining health: {health}");
+		//GD.Print($"{GetParent().Name} took {damage} damage. Remaining health: {health}");
 
 		if (health <= 0){
-			GD.Print($"{GetParent().Name} has died.");
+			//GD.Print($"{GetParent().Name} has died.");
 			GetParent().QueueFree();
 		}
 	}
