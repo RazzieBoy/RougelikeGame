@@ -7,10 +7,6 @@ public partial class Main : Node2D{
 	private ItemManager itemManager;
 
 	public override void _Ready(){
-		var itemManagerScene = (PackedScene)ResourceLoader.Load("res://ItemManager.tscn");
-		itemManager = (ItemManager)itemManagerScene.Instantiate();
-		AddChild(itemManager);
-		
 		// Reference the player and PlayerHud nodes
 		player = GetNode<Player>("Player"); // Adjust this path as needed
 		playerHud = GetNode<PlayerHud>("PlayerHUD"); // Adjust this path as needed
@@ -37,9 +33,5 @@ public partial class Main : Node2D{
 	
 	private void OnHealthUpdated(object sender, (float currentHealth, float maxHealth) healthInfo){
 		playerHud.UpdateHealthBar(healthInfo.currentHealth, healthInfo.maxHealth);
-	}
-	
-	public ItemManager GetItemManager(){
-		return itemManager;
 	}
 }

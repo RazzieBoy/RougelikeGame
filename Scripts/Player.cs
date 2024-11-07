@@ -62,7 +62,6 @@ public partial class Player : CharacterBody2D{
 				StartDash(move_input);
 			}
 		}
-		
 		MoveAndSlide();
 	}
 	

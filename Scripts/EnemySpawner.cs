@@ -40,14 +40,13 @@ public partial class EnemySpawner : Node2D{
 	public override void _Process(double delta){
 		 UpdateSpawnArea();
 		
-		
-		
 		if (activeItems.Count == 0 && spawnCooldown <= 0 && totalSpawnedEnemies < maxSpawnCount && !hasEnemiesSpawned){
 			hasEnemiesSpawned = true;
 		}
 		else if(activeItems.Count == 0){
 			spawnCooldown -= (float)delta;
 		}
+		
 		if (hasEnemiesSpawned && spawnCooldown <= 0){
 			SpawnEnemy();
 			hasEnemiesSpawned = false;
@@ -78,7 +77,6 @@ public partial class EnemySpawner : Node2D{
 		
 		PackedScene enemyScene = rng.RandiRange(0, 1) == 0 ? meleeEnemyScene : rangedEnemyScene;
 		
-		//Vector2 spawnPosition = new Vector2(rng.RandfRange(spawnAreaMin.X, spawnAreaMax.X), rng.RandfRange(spawnAreaMin.Y, spawnAreaMax.Y));
 		Vector2 spawnPosition;
 		do {
 			spawnPosition = new Vector2(rng.RandfRange(spawnAreaMin.X, spawnAreaMax.X), rng.RandfRange(spawnAreaMin.Y, spawnAreaMax.Y));
@@ -98,7 +96,6 @@ public partial class EnemySpawner : Node2D{
 		
 		PackedScene itemScene = itemRng.RandiRange(0,1) == 0 ? speedItemScene : damageItemScene;
 		
-		//Vector2 itemSpawnPosition = new Vector2(itemRng.RandfRange(spawnAreaMin.X, spawnAreaMax.X), itemRng.RandfRange(spawnAreaMin.Y, spawnAreaMax.Y));
 		Vector2 itemSpawnPosition;
 		do{
 			itemSpawnPosition = new Vector2(itemRng.RandfRange(spawnAreaMin.X, spawnAreaMax.X), itemRng.RandfRange(spawnAreaMin.Y, spawnAreaMax.Y));
