@@ -9,6 +9,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TopBorder" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 45.0
 offset_right = 1875.0
@@ -29,6 +30,7 @@ offset_right = 1875.0
 offset_bottom = 880.0
 
 [node name="BottomBorder" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 45.0
 offset_top = 880.0
 offset_right = 1875.0

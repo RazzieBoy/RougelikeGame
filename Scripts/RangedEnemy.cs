@@ -4,7 +4,7 @@ using System;
 public partial class RangedEnemy : CharacterBody2D{
 	
 	Player player;
-	[Export] float speed = 25f;
+	[Export] float speed = 100f;
 	
 	public override void _Ready(){
 		player = (Player)GetTree().Root.GetNode("Main").GetNode("Player");

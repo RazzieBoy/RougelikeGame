@@ -13,7 +13,7 @@ size = Vector2(44, 45)
 size = Vector2(45, 45)
 
 [node name="RangedEnemy" type="CharacterBody2D" groups=["enemy"]]
-collision_layer = 7
+collision_layer = 39
 script = ExtResource("1_kiau5")
 
 [node name="Health" type="Node2D" parent="." groups=["enemy"]]

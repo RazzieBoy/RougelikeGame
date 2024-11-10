@@ -11,8 +11,8 @@
 size = Vector2(45, 45)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 9
-collision_mask = 9
+collision_layer = 25
+collision_mask = 25
 motion_mode = 1
 script = ExtResource("1_3drt3")
 

@@ -33,8 +33,9 @@ public partial class Player : CharacterBody2D{
 			DashCooldownUpdatedEventHandler?.Invoke(this, dashCooldownTime);
 		}
 		if (dashing){
-			Velocity = dashDir * dashSpeed;
+			Velocity = dashDir * (dashSpeed + (speed * 1.5f));
 			dashTimeLeft -= (float)delta;
+			GD.Print(Velocity);
 			
 			if (dashTimeLeft <= 0){
 				dashing = false;
@@ -60,6 +61,7 @@ public partial class Player : CharacterBody2D{
 			
 			if (Input.IsActionJustPressed("utility") && dashCooldownTime <= 0 && move_input != Vector2.Zero){
 				StartDash(move_input);
+				
 			}
 		}
 		MoveAndSlide();
@@ -89,13 +91,14 @@ public partial class Player : CharacterBody2D{
 
 	public void ModifySpeed(float speedValue){
 		speed += speedValue;
+		GD.Print(speed);
 	}
 	
 	public void ModifyDamage(float damageValue){
 		var gun = GetNode<Gun>("Gun");
 		if (gun != null){
 			gun.bulletDamage += damageValue;
-			//GD.Print("Damage modified. New bullet damage: " + gun.bulletDamage);
+			GD.Print("Damage modified. New bullet damage: " + gun.bulletDamage);
 		}
 	}
 }

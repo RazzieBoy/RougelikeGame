@@ -4,7 +4,6 @@ using System;
 public partial class MeleeEnemy : CharacterBody2D{
 	
 	private Player player;
-	private ItemManager itemManager;
 	
 	[Export] float speed = 250f;
 	[Export] float damage = 2f;
@@ -20,16 +19,6 @@ public partial class MeleeEnemy : CharacterBody2D{
 		
 		attackRate = 1 / aps;
 		attackCooldown = attackRate;
-	}
-	
-	public void DropItem()
-	{
-		PackedScene itemToDrop = itemManager.GetRandomItem(0.2f);
-		if (itemToDrop != null){
-			Node2D itemInstance = itemToDrop.Instantiate<Node2D>();
-			itemInstance.GlobalPosition = GlobalPosition;
-			GetTree().Root.AddChild(itemInstance);
-		}
 	}
 
 	public override void _Process(double delta){

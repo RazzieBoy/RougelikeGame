@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://ctxeid3j1bemy"]
-
-[node name="StartRoom" type="Node2D"]
-
-[node name="Line2D" type="Line2D" parent="."]
-position = Vector2(0, 175)
-points = PackedVector2Array(0, 6, 1915, 6, 1915, 782, 5, 784, 5, 11)

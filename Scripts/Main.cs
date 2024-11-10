@@ -4,7 +4,6 @@ using System;
 public partial class Main : Node2D{
 	private Player player;
 	private PlayerHud playerHud;
-	private ItemManager itemManager;
 
 	public override void _Ready(){
 		// Reference the player and PlayerHud nodes

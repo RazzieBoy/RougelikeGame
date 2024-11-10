@@ -8,7 +8,7 @@
 size = Vector2(45, 45)
 
 [node name="MeleeEnemy" type="CharacterBody2D" groups=["enemy"]]
-collision_layer = 7
+collision_layer = 39
 script = ExtResource("1_jcw46")
 
 [node name="Health" type="Node2D" parent="." groups=["enemy"]]
