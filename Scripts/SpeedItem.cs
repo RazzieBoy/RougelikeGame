@@ -6,6 +6,7 @@ public partial class SpeedItem : ItemStatModifier{
 	public override void _Ready(){
 		speedModifier = 50f;
 		damageModifier = 0f;
+		healthModifier = 0f;
 		GetNode<Area2D>("Area2D").BodyEntered += OnBodyEntered;
 	}
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://derv50hpb76sx"]
+[gd_scene load_steps=7 format=3 uid="uid://derv50hpb76sx"]
 
 [ext_resource type="Script" path="res://Scripts/EnemySpawner.cs" id="1_8042j"]
 [ext_resource type="PackedScene" uid="uid://blv0f1ln71nmk" path="res://Entities/melee_enemy.tscn" id="2_m4gle"]
 [ext_resource type="PackedScene" uid="uid://uv8ufyssme5w" path="res://Entities/ranged_enemy.tscn" id="3_cvpof"]
 [ext_resource type="PackedScene" uid="uid://ckoyvsd5v3a1l" path="res://Entities/speedItem.tscn" id="4_syq1o"]
 [ext_resource type="PackedScene" uid="uid://326r5cfdi7a6" path="res://Entities/damageItem.tscn" id="5_jxok5"]
+[ext_resource type="PackedScene" uid="uid://ca1d128kg0uus" path="res://Entities/healItem.tscn" id="6_xbw7k"]
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_8042j")
@@ -12,6 +13,7 @@ meleeEnemyScene = ExtResource("2_m4gle")
 rangedEnemyScene = ExtResource("3_cvpof")
 speedItemScene = ExtResource("4_syq1o")
 damageItemScene = ExtResource("5_jxok5")
+healthItemScene = ExtResource("6_xbw7k")
 
 [node name="LevelLabel" type="Label" parent="."]
 anchors_preset = 8

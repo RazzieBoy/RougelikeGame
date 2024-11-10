@@ -6,6 +6,7 @@ public partial class DamageItem : ItemStatModifier{
 	public override void _Ready(){
 		speedModifier = 0f;
 		damageModifier = 1f;
+		healthModifier = 0f;
 		GetNode<Area2D>("Area2D").BodyEntered += OnBodyEntered;
 	}
 	//Checks if the player has touched the item, if so it is deleted from view

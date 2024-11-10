@@ -12,5 +12,7 @@ public partial class MainMenu : Control{
 		GetTree().Quit();
 	}
 	
-	private void _on_settings_button_pressed(){}
+	private void _on_help_button_pressed(){
+		GetTree().ChangeSceneToFile("res://Entities/info.tscn");
+	}
 }

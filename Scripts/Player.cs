@@ -101,4 +101,10 @@ public partial class Player : CharacterBody2D{
 			GD.Print("Damage modified. New bullet damage: " + gun.bulletDamage);
 		}
 	}
+	
+	public void ModifyHealth(float healthValue){
+		var playerHealth = GetNode<PlayerHealth>("Health"); // Adjust path as needed
+		playerHealth.Heal(healthValue);  // Use Heal method from PlayerHealth class
+		HealthUpdatedEventHandler?.Invoke(this, (playerHealth.HealthValue, playerHealth.maxHealth)); // Notify about health change
+	}
 }

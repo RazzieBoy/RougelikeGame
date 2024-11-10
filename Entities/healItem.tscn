@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca1d128kg0uus"]
+
+[ext_resource type="Texture2D" uid="uid://bugcpd0rk84it" path="res://Art/greensquare.png" id="1_8dyyh"]
+[ext_resource type="Script" path="res://Scripts/HealItem.cs" id="1_qwmb7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g868i"]
+size = Vector2(22, 22)
+
+[node name="HealItem" type="Node2D"]
+script = ExtResource("1_qwmb7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_8dyyh")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_g868i")
+
+[connection signal="body_entered" from="Area2D" to="." method="OnBodyEntered"]

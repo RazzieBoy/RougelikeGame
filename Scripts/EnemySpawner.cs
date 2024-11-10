@@ -8,6 +8,7 @@ public partial class EnemySpawner : Node2D{
 	[Export] public PackedScene rangedEnemyScene;
 	[Export] public PackedScene speedItemScene;
 	[Export] public PackedScene damageItemScene;
+	[Export] public PackedScene healthItemScene;
 	//Floats that hold how quick the enemies can spawn and hoow big the limit is.
 	[Export] public float spawnRate = 2f;
 	[Export] public float maxSpawnCount;
@@ -119,7 +120,15 @@ public partial class EnemySpawner : Node2D{
 		RandomNumberGenerator itemRng = new RandomNumberGenerator();
 		itemRng.Randomize();
 		
-		PackedScene itemScene = itemRng.RandiRange(0,1) == 0 ? speedItemScene : damageItemScene;
+		int itemChoice = itemRng.RandiRange(0,2);
+		
+		PackedScene itemScene = itemChoice switch{
+			0 => speedItemScene,
+			1 => damageItemScene,
+			2 => healthItemScene,
+			_ => speedItemScene
+		};
+		
 		Vector2 itemSpawnPosition;
 		do{
 			itemSpawnPosition = new Vector2(itemRng.RandfRange(spawnAreaMin.X, spawnAreaMax.X), itemRng.RandfRange(spawnAreaMin.Y, spawnAreaMax.Y));
