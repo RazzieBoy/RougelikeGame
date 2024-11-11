@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c5u6m466iidd1"]
 
-[node name="Control" type="Control"]
+[node name="Border" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

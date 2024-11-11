@@ -4,11 +4,13 @@ using System;
 public partial class Main : Node2D{
 	private Player player;
 	private PlayerHud playerHud;
+	private DeathDisplay deathDisplay;
 
 	public override void _Ready(){
 		// Reference the player and PlayerHud nodes
 		player = GetNode<Player>("Player"); // Adjust this path as needed
 		playerHud = GetNode<PlayerHud>("PlayerHUD"); // Adjust this path as needed
+		deathDisplay = GetNode<DeathDisplay>("DeathDisplay");
 
 		// Connect the gun's ammo update event to PlayerHud's display method
 		var gun = player.GetNode<Gun>("Gun");
@@ -32,5 +34,8 @@ public partial class Main : Node2D{
 	
 	private void OnHealthUpdated(object sender, (float currentHealth, float maxHealth) healthInfo){
 		playerHud.UpdateHealthBar(healthInfo.currentHealth, healthInfo.maxHealth);
+		if (healthInfo.currentHealth <= 0 && deathDisplay != null){
+			deathDisplay.Show();
+		}
 	}
 }
