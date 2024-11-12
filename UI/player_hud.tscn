@@ -16,12 +16,12 @@ script = ExtResource("1_vhebq")
 
 [node name="HealthLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = -824.0
-offset_top = 441.0
-offset_right = -613.0
-offset_bottom = 483.0
+offset_left = -834.0
+offset_top = 439.0
+offset_right = -607.0
+offset_bottom = 481.0
 theme_override_font_sizes/font_size = 30
-text = "HEALTH: 10/10"
+text = "HEALTH: 10 / 10"
 
 [node name="HealthBar" type="ColorRect" parent="."]
 layout_mode = 0
@@ -217,6 +217,7 @@ theme_override_font_sizes/font_size = 30
 text = "SPEED: 300"
 
 [node name="DamageLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = -470.0
 offset_top = 438.0
 offset_right = -312.0

@@ -21,7 +21,9 @@ public partial class EnemySpawner : Node2D{
 	private float spawnCooldown = 0f;
 	private float totalSpawnedEnemies = 0;
 	public float currentLevel;
+	//Labels that are specific to the enemy spawner and it's actions
 	private Label levelLabel;
+	private Label nextWave;
 	//Bools that checks is enemies have spawned
 	private bool hasEnemiesSpawned = false;
 	//List for enemies that are alive
@@ -34,12 +36,14 @@ public partial class EnemySpawner : Node2D{
 		UpdateSpawnArea();
 		currentLevel = 1;
 		//Sets the max enemy spawn count to 5 at the start
-		maxSpawnCount = 5;
+		maxSpawnCount = 1;
 		//Sets the spawn cooldown to the spawnrate
 		spawnCooldown = spawnRate;
 		levelLabel = GetNode<Label>("LevelLabel");
+		nextWave = GetNode<Label>("NextWave");
 
 		UpdateLevelLabel();
+		UpdateNextWave();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -52,10 +56,13 @@ public partial class EnemySpawner : Node2D{
 		//If there is no item to pickup, countdown for spawning enemies
 		else if(activeItems.Count == 0){
 			spawnCooldown -= (float)delta;
+			UpdateNextWave();
 		}
 		//Spawn the enemies
 		if (hasEnemiesSpawned && spawnCooldown <= 0){
-			SpawnEnemy();
+			if (currentLevel % 5 != 0){
+				SpawnEnemy();
+			}
 			hasEnemiesSpawned = false;
 		}
 		
@@ -120,6 +127,7 @@ public partial class EnemySpawner : Node2D{
 		RandomNumberGenerator itemRng = new RandomNumberGenerator();
 		itemRng.Randomize();
 		int itemChoice = itemRng.RandiRange(0,2);
+		GD.Print($"Item: {itemChoice} has spawned");
 		
 		PackedScene itemScene = itemChoice switch{
 			0 => speedItemScene,
@@ -164,7 +172,17 @@ public partial class EnemySpawner : Node2D{
 	
 	private void UpdateLevelLabel(){
 		if (levelLabel != null){
-			levelLabel.Text = $"Level: {currentLevel}";
+			levelLabel.Text = $"LEVEL: {currentLevel}";
+		}
+	}
+	
+	private void UpdateNextWave(){
+		if (nextWave != null && spawnCooldown >= 0){
+			nextWave.Show();
+			nextWave.Text = $"NEXT WAVE IN: {spawnCooldown:F0}";
+		}
+		else{
+			nextWave.Hide();
 		}
 	}
 }

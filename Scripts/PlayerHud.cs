@@ -54,7 +54,7 @@ public partial class PlayerHud : Control{
 	}
 	
 	public void UpdateDamageDisplay(object sender, float newDamage){
-		damageLabel.Text = $"DAMAGE {newDamage}";
+		damageLabel.Text = $"DAMAGE: {newDamage}";
 	}
 	
 	public override void _Process(double delta){

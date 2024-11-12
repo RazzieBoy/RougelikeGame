@@ -16,7 +16,7 @@ public partial class Gun : Node2D{
 	public float primaryAmmoCount = 10;
 	float fireRate;
 	float attackCooldown = 0f;
-	float ReloadTime = 2f;
+	float reloadTime;
 	private float frenzyTimeLeft = 0f;
 	private float frenzyCooldownLeft = 0f;
 	private float storedBps;
@@ -41,14 +41,17 @@ public partial class Gun : Node2D{
 			}
 		}
 		else{
-			if (frenzyCooldownLeft > 0){
+			if (frenzyCooldownLeft >= 0){
 				frenzyCooldownLeft -= (float)delta;
 				CooldownUpdatedEventHandler?.Invoke(this, frenzyCooldownLeft);
 				//GD.Print(frenzyCooldownLeft);dw
 			}
+			else{
+				CooldownUpdatedEventHandler?.Invoke(this, 30);
+			}
 		}
 		//Players primary Attack methods used via the Left mouse button
-		if (Input.IsActionPressed("primairy") && attackCooldown > fireRate){
+		if (Input.IsActionPressed("primairy") && !Input.IsActionPressed("secondary") && attackCooldown > fireRate && reloadTime <= 0){
 			if (!isReloading && (primaryAmmoCount > 0 || isFrenzy)){
 				RigidBody2D bullet = bulletScene.Instantiate<RigidBody2D>();
 				bullet.Rotation = GlobalRotation;
@@ -71,9 +74,13 @@ public partial class Gun : Node2D{
 		else{
 			attackCooldown += (float)delta;
 		}
-		if (Input.IsActionPressed("reload")){
+		if (Input.IsActionPressed("reload") && reloadTime <= 0){
 			primaryAmmoCount = 10;
 			UpdateAmmo();
+			reloadTime = 2;
+		}
+		else{
+			reloadTime -= (float)delta;
 		}
 		if (Input.IsActionPressed("special") && frenzyCooldownLeft <= 0){
 			isFrenzy = true;
@@ -81,7 +88,9 @@ public partial class Gun : Node2D{
 			bps = storedBps * 3;
 			fireRate = 1 / bps;
 		}
+
 	}
+	
 	private void UpdateAmmo(){
 		AmmoUpdatedEventHandler?.Invoke(this, (int)primaryAmmoCount);
 	}

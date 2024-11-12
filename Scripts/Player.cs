@@ -33,7 +33,13 @@ public partial class Player : CharacterBody2D{
 		
 		if (dashCooldownTime > 0){
 			dashCooldownTime -= (float)delta;
-			DashCooldownUpdatedEventHandler?.Invoke(this, dashCooldownTime);
+			if (dashCooldownTime >= 0){
+				DashCooldownUpdatedEventHandler?.Invoke(this, dashCooldownTime);
+			}
+			else{
+				DashCooldownUpdatedEventHandler?.Invoke(this, 2);
+			}
+			
 		}
 		if (dashing){
 			Velocity = dashDir * (dashSpeed + (speed * 1.5f));
