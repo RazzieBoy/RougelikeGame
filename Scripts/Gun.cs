@@ -12,7 +12,6 @@ public partial class Gun : Node2D{
 	
 	bool isReloading = false;
 	bool isFrenzy = false;
-	
 	public float primaryAmmoCount = 10;
 	float fireRate;
 	float attackCooldown = 0f;
@@ -20,6 +19,9 @@ public partial class Gun : Node2D{
 	private float frenzyTimeLeft = 0f;
 	private float frenzyCooldownLeft = 0f;
 	private float storedBps;
+	
+	private bool piercingEnabled = false;
+	private int piercingCount = 1;
 	
 	public event EventHandler<int> AmmoUpdatedEventHandler;
 	public event EventHandler<float> CooldownUpdatedEventHandler;
@@ -61,6 +63,7 @@ public partial class Gun : Node2D{
 				Bullet bulletScript = bullet as Bullet; // Assuming Bullet script is attached to the bullet scene
 				if (bulletScript != null){
 					bulletScript.damage = bulletDamage;
+					bulletScript.piercingCount = piercingEnabled ? piercingCount : 0; 
 					//GD.Print("Bullet damage set to: " + bulletDamage); // For debugging
 				}
 				GetTree().Root.AddChild(bullet);
@@ -93,5 +96,16 @@ public partial class Gun : Node2D{
 	
 	private void UpdateAmmo(){
 		AmmoUpdatedEventHandler?.Invoke(this, (int)primaryAmmoCount);
+	}
+	
+	// Call this method to enable piercing when the player picks up the item
+	 // Method to enable piercing when the player picks up the item
+	public void EnablePiercing(int count){
+		piercingEnabled = true;
+		piercingCount = count; // Set the piercing count to the provided value
+	}
+
+	public void DisablePiercing(){
+		piercingEnabled = false;
 	}
 }

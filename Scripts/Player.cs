@@ -13,6 +13,9 @@ public partial class Player : CharacterBody2D{
 	private float dashTimeLeft = 0f;
 	private float dashCooldownTime = 0f;
 	
+	private bool hasPiercingBullet = false;
+	private float piercingDuration = 0f;
+	
 	public event EventHandler<float> DashCooldownUpdatedEventHandler;
 	public event EventHandler<(float currentHealth, float maxHealth)> HealthUpdatedEventHandler; // This line defines the event
 	public event EventHandler<float> SpeedUpdatedEventHandler;
@@ -30,6 +33,13 @@ public partial class Player : CharacterBody2D{
 	public override void _PhysicsProcess(double delta){
 		//Makes the player always look at where the computer mouse is located
 		LookAt(GetGlobalMousePosition());
+		
+		if (piercingDuration > 0){
+			piercingDuration -= (float)delta;
+			if (piercingDuration <= 0){
+				DisablePiercing();
+			}
+		}
 		
 		if (dashCooldownTime > 0){
 			dashCooldownTime -= (float)delta;
@@ -83,6 +93,24 @@ public partial class Player : CharacterBody2D{
 		CollisionLayer = 5;
 		CollisionMask = 0; // Temporarily disable collision with everything
 		DashCooldownUpdatedEventHandler?.Invoke(this, dashCooldownTime);
+	}
+	
+	public void EnablePiercing(float duration) {
+		hasPiercingBullet = true;
+		piercingDuration = duration;
+		var gun = GetNode<Gun>("Gun");
+		if (gun != null) {
+			gun.EnablePiercing(3); // Ensure this matches the method signature in Gun
+		}
+	}
+
+	
+	public void DisablePiercing(){
+		hasPiercingBullet = false;
+		var gun = GetNode<Gun>("Gun");
+		if (gun != null){
+			gun.DisablePiercing();
+		}
 	}
 	
 	public void TakeDamage(float damage){

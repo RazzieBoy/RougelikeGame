@@ -10,6 +10,7 @@ public partial class EnemySpawner : Node2D{
 	[Export] public PackedScene speedItemScene;
 	[Export] public PackedScene damageItemScene;
 	[Export] public PackedScene healthItemScene;
+	[Export] public PackedScene piercingItemScene;
 	//Floats that hold how quick the enemies can spawn and hoow big the limit is.
 	[Export] public float spawnRate = 2f;
 	[Export] public float maxSpawnCount;
@@ -92,7 +93,6 @@ public partial class EnemySpawner : Node2D{
 		Rect2 visibleRect = GetViewport().GetVisibleRect();
 		Vector2 screenSize = visibleRect.Size;
 		
-		float offset = 100f;
 		spawnAreaMin = new Vector2(50, 50);
 		spawnAreaMax = new Vector2(screenSize.X - 50, screenSize.Y - 200);
 		spawnAreaMax.X = Mathf.Min(spawnAreaMax.X, screenSize.X - 50);
@@ -110,17 +110,13 @@ public partial class EnemySpawner : Node2D{
 		do {
 			float edge = rng.RandiRange(0,3);
 			switch(edge){
-				case 0:
-					spawnPosition = new Vector2(rng.RandfRange(-50, screenSize.X + 50), -50);
+				case 0: spawnPosition = new Vector2(rng.RandfRange(-50, screenSize.X + 50), -50);
 					break;
-				case 1:
-					spawnPosition = new Vector2(rng.RandfRange(-50, screenSize.X + 50), screenSize.Y + 50);
+				case 1: spawnPosition = new Vector2(rng.RandfRange(-50, screenSize.X + 50), screenSize.Y + 50);
 					break;
-				case 2:
-					spawnPosition = new Vector2(-50, rng.RandfRange(-50, screenSize.Y + 50));
+				case 2: spawnPosition = new Vector2(-50, rng.RandfRange(-50, screenSize.Y + 50));
 					break;
-				case 3:
-					spawnPosition = new Vector2(screenSize.X + 50, rng.RandfRange(-50, screenSize.Y + 50));
+				case 3: spawnPosition = new Vector2(screenSize.X + 50, rng.RandfRange(-50, screenSize.Y + 50));
 					break;
 			}
 			//spawnPosition = new Vector2(rng.RandfRange(spawnAreaMin.X, spawnAreaMax.X), rng.RandfRange(spawnAreaMin.Y, spawnAreaMax.Y));
@@ -143,17 +139,13 @@ public partial class EnemySpawner : Node2D{
 		do{
 			float edge = rng.RandiRange(0,3);
 			switch(edge){
-				case 0:
-					miniBossSpawnPosition = new Vector2(rng.RandfRange(-50, screenSize.X + 50), -50);
+				case 0: miniBossSpawnPosition = new Vector2(rng.RandfRange(-50, screenSize.X + 50), -50);
 					break;
-				case 1:
-					miniBossSpawnPosition = new Vector2(rng.RandfRange(-50, screenSize.X + 50), screenSize.Y + 50);
+				case 1: miniBossSpawnPosition = new Vector2(rng.RandfRange(-50, screenSize.X + 50), screenSize.Y + 50);
 					break;
-				case 2:
-					miniBossSpawnPosition = new Vector2(-50, rng.RandfRange(-50, screenSize.Y + 50));
+				case 2: miniBossSpawnPosition = new Vector2(-50, rng.RandfRange(-50, screenSize.Y + 50));
 					break;
-				case 3:
-					miniBossSpawnPosition = new Vector2(screenSize.X + 50, rng.RandfRange(-50, screenSize.Y + 50));
+				case 3: miniBossSpawnPosition = new Vector2(screenSize.X + 50, rng.RandfRange(-50, screenSize.Y + 50));
 					break;
 			}
 		}  while (player != null && player.Position.DistanceTo(miniBossSpawnPosition) < 200);
@@ -166,13 +158,14 @@ public partial class EnemySpawner : Node2D{
 	private void SpawnItem(){
 		RandomNumberGenerator itemRng = new RandomNumberGenerator();
 		itemRng.Randomize();
-		int itemChoice = itemRng.RandiRange(0,2);
+		int itemChoice = itemRng.RandiRange(0,3);
 		GD.Print($"Item: {itemChoice} has spawned");
 		
 		PackedScene itemScene = itemChoice switch{
 			0 => speedItemScene,
 			1 => damageItemScene,
 			2 => healthItemScene,
+			3 => piercingItemScene,
 			_ => speedItemScene
 		};
 		
@@ -187,7 +180,7 @@ public partial class EnemySpawner : Node2D{
 		activeItems.Add(itemInstance);
 		
 		if (itemRng.Randf() <= 0.1f){
-			List<int> remainingChoices = new List<int> {0, 1, 2};
+			List<int> remainingChoices = new List<int> {0, 1, 2, 3};
 			remainingChoices.Remove(itemChoice);
 			
 			int extraItemChoice = remainingChoices[itemRng.RandiRange(0, remainingChoices.Count - 1)];
@@ -195,6 +188,7 @@ public partial class EnemySpawner : Node2D{
 				0 => speedItemScene,
 				1 => damageItemScene,
 				2 => healthItemScene,
+				3 => piercingItemScene,
 				_ => speedItemScene
 			};
 			
