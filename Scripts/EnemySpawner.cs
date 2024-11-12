@@ -6,6 +6,7 @@ public partial class EnemySpawner : Node2D{
 	//Get's enemy and item entities for later use
 	[Export] public PackedScene meleeEnemyScene;
 	[Export] public PackedScene rangedEnemyScene;
+	[Export] public PackedScene miniBossEnemyScene;
 	[Export] public PackedScene speedItemScene;
 	[Export] public PackedScene damageItemScene;
 	[Export] public PackedScene healthItemScene;
@@ -26,6 +27,7 @@ public partial class EnemySpawner : Node2D{
 	private Label nextWave;
 	//Bools that checks is enemies have spawned
 	private bool hasEnemiesSpawned = false;
+	private bool hasMiniBossSpawned = false;
 	//List for enemies that are alive
 	private List<Node2D> activeEnemies = new List<Node2D>();
 	private List<Node2D> activeItems = new List<Node2D>();
@@ -36,12 +38,12 @@ public partial class EnemySpawner : Node2D{
 		UpdateSpawnArea();
 		currentLevel = 1;
 		//Sets the max enemy spawn count to 5 at the start
-		maxSpawnCount = 1;
+		maxSpawnCount = 5;
 		//Sets the spawn cooldown to the spawnrate
 		spawnCooldown = spawnRate;
 		levelLabel = GetNode<Label>("LevelLabel");
 		nextWave = GetNode<Label>("NextWave");
-
+		//Updates the label informations
 		UpdateLevelLabel();
 		UpdateNextWave();
 	}
@@ -60,7 +62,14 @@ public partial class EnemySpawner : Node2D{
 		}
 		//Spawn the enemies
 		if (hasEnemiesSpawned && spawnCooldown <= 0){
-			if (currentLevel % 5 != 0){
+			if (currentLevel % 5 == 0){
+				if (!hasMiniBossSpawned){
+					SpawnMiniBoss();
+					hasMiniBossSpawned = true;
+					totalSpawnedEnemies = maxSpawnCount;
+				}
+			}
+			else{
 				SpawnEnemy();
 			}
 			hasEnemiesSpawned = false;
@@ -73,6 +82,7 @@ public partial class EnemySpawner : Node2D{
 			totalSpawnedEnemies = 0f;
 			maxSpawnCount = maxSpawnCount + 1;
 			currentLevel += 1;
+			hasMiniBossSpawned = false;
 			UpdateLevelLabel(); // Ensure this call is made
 		}
 		activeItems.RemoveAll(item => !IsInstanceValid(item));
@@ -121,6 +131,36 @@ public partial class EnemySpawner : Node2D{
 		AddChild(enemyInstance);
 		activeEnemies.Add(enemyInstance);
 		totalSpawnedEnemies++; // Increment the total spawn count
+	}
+	
+	private void SpawnMiniBoss(){
+		RandomNumberGenerator rng = new RandomNumberGenerator();
+		rng.Randomize();
+		PackedScene enemyScene = miniBossEnemyScene;
+		Vector2 miniBossSpawnPosition = Vector2.Zero;
+		Rect2 visibleRect = GetViewport().GetVisibleRect();
+		Vector2 screenSize = visibleRect.Size;
+		do{
+			float edge = rng.RandiRange(0,3);
+			switch(edge){
+				case 0:
+					miniBossSpawnPosition = new Vector2(rng.RandfRange(-50, screenSize.X + 50), -50);
+					break;
+				case 1:
+					miniBossSpawnPosition = new Vector2(rng.RandfRange(-50, screenSize.X + 50), screenSize.Y + 50);
+					break;
+				case 2:
+					miniBossSpawnPosition = new Vector2(-50, rng.RandfRange(-50, screenSize.Y + 50));
+					break;
+				case 3:
+					miniBossSpawnPosition = new Vector2(screenSize.X + 50, rng.RandfRange(-50, screenSize.Y + 50));
+					break;
+			}
+		}  while (player != null && player.Position.DistanceTo(miniBossSpawnPosition) < 200);
+		Node2D enemyInstance = enemyScene.Instantiate<Node2D>();
+		enemyInstance.Position = miniBossSpawnPosition;
+		AddChild(enemyInstance);
+		activeEnemies.Add(enemyInstance);
 	}
 	
 	private void SpawnItem(){
