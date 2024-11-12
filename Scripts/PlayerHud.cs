@@ -7,6 +7,9 @@ public partial class PlayerHud : Control{
 	private Label dashCooldownLabel;
 	private Label primaryCooldownLabel;
 	private ColorRect healthBar;
+	private Label healthLabel;
+	private Label speedLabel;
+	private Label damageLabel;
 
 	public override void _Ready(){
 		primaryAmmoLabel = GetNode<Label>("PrimaryBackground/Primary");
@@ -14,15 +17,19 @@ public partial class PlayerHud : Control{
 		dashCooldownLabel = GetNode<Label>("UtilityBackground/Utility");
 		primaryCooldownLabel = GetNode<Label>("SpecialBackground/Special");
 		healthBar = GetNode<ColorRect>("HealthBar");
+		healthLabel = GetNode<Label>("HealthLabel");
+		speedLabel = GetNode<Label>("SpeedLabel");
+		damageLabel = GetNode<Label>("DamageLabel");
 	}
 	
-	public void UpdateHealthBar(float currentHealth, float maxHealth){
+	public void UpdateHealthBar(object sender, (float currentHealth, float maxHealth) healthInfo){
 		// Calculate the health percentage and update the ColorRect size
-		float healthPercentage = currentHealth / maxHealth;
+		float healthPercentage = healthInfo.currentHealth / healthInfo.maxHealth;
 		healthBar.Scale = new Vector2(healthPercentage, 1); // Adjust size based on health percentage
 		// Optionally, change color based on health
 		Color healthColor = new Color(223f / 255f, 149f / 255f, 255f / 255f); // #df95ff
 		healthBar.Color = healthColor; // Set to the specified color
+		healthLabel.Text = $"HEALTH: {healthInfo.currentHealth:F0} / {healthInfo.maxHealth:F0}";
 	}
 
 	// Method to update ammo display, called by Main.cs
@@ -40,6 +47,14 @@ public partial class PlayerHud : Control{
 	
 	public void UpdateCooldownDisplayPrimary(object sender, float cooldownTime){
 		primaryCooldownLabel.Text = $"{cooldownTime:F0}";  // Primary cooldown only
+	}
+	
+	public void UpdateSpeedDisplay(object sender, float newSpeed){
+		speedLabel.Text = $"SPEED: {newSpeed}";
+	}
+	
+	public void UpdateDamageDisplay(object sender, float newDamage){
+		damageLabel.Text = $"DAMAGE {newDamage}";
 	}
 	
 	public override void _Process(double delta){

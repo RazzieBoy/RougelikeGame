@@ -15,6 +15,8 @@ public partial class Player : CharacterBody2D{
 	
 	public event EventHandler<float> DashCooldownUpdatedEventHandler;
 	public event EventHandler<(float currentHealth, float maxHealth)> HealthUpdatedEventHandler; // This line defines the event
+	public event EventHandler<float> SpeedUpdatedEventHandler;
+	public event EventHandler<float> DamageUpdatedEventHandler;
 
 	private uint originalCollisionLayer;
 	private uint originalCollisionMask;
@@ -22,6 +24,7 @@ public partial class Player : CharacterBody2D{
 	public override void _Ready(){
 		originalCollisionLayer = CollisionLayer;
 		originalCollisionMask = CollisionMask;
+		SpeedUpdatedEventHandler?.Invoke(this, speed);
 	}
 
 	public override void _PhysicsProcess(double delta){
@@ -61,7 +64,6 @@ public partial class Player : CharacterBody2D{
 			
 			if (Input.IsActionJustPressed("utility") && dashCooldownTime <= 0 && move_input != Vector2.Zero){
 				StartDash(move_input);
-				
 			}
 		}
 		MoveAndSlide();
@@ -92,6 +94,8 @@ public partial class Player : CharacterBody2D{
 	public void ModifySpeed(float speedValue){
 		speed += speedValue;
 		GD.Print(speed);
+		
+		SpeedUpdatedEventHandler?.Invoke(this, speed + 150);
 	}
 	
 	public void ModifyDamage(float damageValue){
@@ -99,6 +103,8 @@ public partial class Player : CharacterBody2D{
 		if (gun != null){
 			gun.bulletDamage += damageValue;
 			GD.Print("Damage modified. New bullet damage: " + gun.bulletDamage);
+			
+			DamageUpdatedEventHandler?.Invoke(this, gun.bulletDamage);
 		}
 	}
 	

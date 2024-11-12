@@ -119,7 +119,6 @@ public partial class EnemySpawner : Node2D{
 	private void SpawnItem(){
 		RandomNumberGenerator itemRng = new RandomNumberGenerator();
 		itemRng.Randomize();
-		
 		int itemChoice = itemRng.RandiRange(0,2);
 		
 		PackedScene itemScene = itemChoice switch{
@@ -138,6 +137,29 @@ public partial class EnemySpawner : Node2D{
 		itemInstance.Position = itemSpawnPosition;
 		AddChild(itemInstance);
 		activeItems.Add(itemInstance);
+		
+		if (itemRng.Randf() <= 0.1f){
+			List<int> remainingChoices = new List<int> {0, 1, 2};
+			remainingChoices.Remove(itemChoice);
+			
+			int extraItemChoice = remainingChoices[itemRng.RandiRange(0, remainingChoices.Count - 1)];
+			PackedScene extraItemScene = extraItemChoice switch{
+				0 => speedItemScene,
+				1 => damageItemScene,
+				2 => healthItemScene,
+				_ => speedItemScene
+			};
+			
+			Vector2 extraItemSpawnPosition;
+			do{
+				extraItemSpawnPosition = new Vector2(itemRng.RandfRange(spawnAreaMin.X, spawnAreaMax.X), itemRng.RandfRange(spawnAreaMin.Y, spawnAreaMax.Y));
+			} while (player != null && player.Position.DistanceTo(extraItemSpawnPosition) < 50);
+				
+			Node2D extraItemInstance = extraItemScene.Instantiate<Node2D>();
+			extraItemInstance.Position = extraItemSpawnPosition;
+			AddChild(extraItemInstance);
+			activeItems.Add(extraItemInstance);
+		}
 	}
 	
 	private void UpdateLevelLabel(){

@@ -39,9 +39,10 @@ dragger_visibility = 1
 [node name="KeyInputs" type="VBoxContainer" parent="HSplitContainer"]
 layout_mode = 2
 
-[node name="Key Binds" type="Label" parent="HSplitContainer/KeyInputs"]
+[node name="Abilities" type="Label" parent="HSplitContainer/KeyInputs"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
 text = "Abilities"
 
 [node name="Primary Shoot (single line)" type="Label" parent="HSplitContainer/KeyInputs"]
@@ -72,9 +73,9 @@ text = "Reload"
 [node name="WhatTheyDo2" type="VBoxContainer" parent="HSplitContainer"]
 layout_mode = 2
 
-[node name="Primary Shoot (single line)" type="Label" parent="HSplitContainer/WhatTheyDo2"]
+[node name="Key Binds" type="Label" parent="HSplitContainer/WhatTheyDo2"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 50
 text = "Key Binds"
 
 [node name="M1 (Left Mouse Button" type="Label" parent="HSplitContainer/WhatTheyDo2"]

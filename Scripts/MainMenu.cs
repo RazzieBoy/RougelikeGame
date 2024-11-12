@@ -11,7 +11,7 @@ public partial class MainMenu : Control{
 	private void _on_quit_button_pressed(){
 		GetTree().Quit();
 	}
-	
+	//Button which takes the player to a scene that shows all the keybinds and what they do
 	private void _on_help_button_pressed(){
 		GetTree().ChangeSceneToFile("res://Entities/info.tscn");
 	}
