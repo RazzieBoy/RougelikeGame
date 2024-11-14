@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyh210g8cm5ns"
-path="res://.godot/imported/redsquare.jpg-79e1b44280725a4079ccac1894ff6891.ctex"
+uid="uid://cdjmcurb5iat1"
+path="res://.godot/imported/MeleeEnemySprite.png-f472ffc6ead6460b17b43f82dac30e25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/redsquare.jpg"
-dest_files=["res://.godot/imported/redsquare.jpg-79e1b44280725a4079ccac1894ff6891.ctex"]
+source_file="res://Art/MeleeEnemySprite.png"
+dest_files=["res://.godot/imported/MeleeEnemySprite.png-f472ffc6ead6460b17b43f82dac30e25.ctex"]
 
 [params]
 

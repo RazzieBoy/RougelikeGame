@@ -25,9 +25,9 @@ public partial class PlayerHud : Control{
 	public void UpdateHealthBar(object sender, (float currentHealth, float maxHealth) healthInfo){
 		// Calculate the health percentage and update the ColorRect size
 		float healthPercentage = healthInfo.currentHealth / healthInfo.maxHealth;
-		healthBar.Scale = new Vector2(healthPercentage, 1); // Adjust size based on health percentage
+		healthBar.Scale = new Vector2(healthPercentage, 0.887f); // Adjust size based on health percentage
 		// Optionally, change color based on health
-		Color healthColor = new Color(223f / 255f, 149f / 255f, 255f / 255f); // #df95ff
+		Color healthColor = new Color(17 / 255f, 255f / 255f, 1 / 255f); //11ff01
 		healthBar.Color = healthColor; // Set to the specified color
 		healthLabel.Text = $"HEALTH: {healthInfo.currentHealth:F0} / {healthInfo.maxHealth:F0}";
 	}

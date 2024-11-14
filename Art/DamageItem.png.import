@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wyguygmf7m4y"
-path="res://.godot/imported/miniBoss.jpg-df16397aab68b5f7ed45e07d5ee89f34.ctex"
+uid="uid://cjo4vd36sef0m"
+path="res://.godot/imported/DamageItem.png-6a8938bfd7866bcbb5711ecad7452019.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/miniBoss.jpg"
-dest_files=["res://.godot/imported/miniBoss.jpg-df16397aab68b5f7ed45e07d5ee89f34.ctex"]
+source_file="res://Art/DamageItem.png"
+dest_files=["res://.godot/imported/DamageItem.png-6a8938bfd7866bcbb5711ecad7452019.ctex"]
 
 [params]
 

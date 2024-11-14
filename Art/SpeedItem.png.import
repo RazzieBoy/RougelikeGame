@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://duirc275tjcij"
-path="res://.godot/imported/HUDBackground.png-fd4f670bc5660136a807a3bcf3c90c64.ctex"
+uid="uid://cfq8sx3klsefn"
+path="res://.godot/imported/SpeedItem.png-32b4cec8527fcf75fe6935f1a1b9b34a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/HUDBackground.png"
-dest_files=["res://.godot/imported/HUDBackground.png-fd4f670bc5660136a807a3bcf3c90c64.ctex"]
+source_file="res://Art/SpeedItem.png"
+dest_files=["res://.godot/imported/SpeedItem.png-32b4cec8527fcf75fe6935f1a1b9b34a.ctex"]
 
 [params]
 

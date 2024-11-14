@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/MeleeEnemy.cs" id="1_jcw46"]
 [ext_resource type="Script" path="res://Scripts/EnemyHealth.cs" id="2_7xt1i"]
-[ext_resource type="Texture2D" uid="uid://dyh210g8cm5ns" path="res://Art/redsquare.jpg" id="2_o4mov"]
+[ext_resource type="Texture2D" uid="uid://cdjmcurb5iat1" path="res://Art/MeleeEnemySprite.png" id="3_3v8u7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2r18v"]
 size = Vector2(45, 45)
@@ -18,8 +18,9 @@ script = ExtResource("2_7xt1i")
 shape = SubResource("RectangleShape2D_2r18v")
 
 [node name="EnemyGFX" type="Sprite2D" parent="."]
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("2_o4mov")
+rotation = -1.5708
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("3_3v8u7")
 
 [node name="AttackRange" type="Area2D" parent="."]
 

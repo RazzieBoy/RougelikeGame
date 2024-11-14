@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mglpvpl0434"
-path="res://.godot/imported/tilemapplaceholder.png-b5be5f023e4e05982247f446571f1674.ctex"
+uid="uid://d160a41l8c8hw"
+path="res://.godot/imported/UtilitySymbol.png-d6294700ea81c85d16b4bbc94e9a2e1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/tilemapplaceholder.png"
-dest_files=["res://.godot/imported/tilemapplaceholder.png-b5be5f023e4e05982247f446571f1674.ctex"]
+source_file="res://Art/UtilitySymbol.png"
+dest_files=["res://.godot/imported/UtilitySymbol.png-d6294700ea81c85d16b4bbc94e9a2e1c.ctex"]
 
 [params]
 

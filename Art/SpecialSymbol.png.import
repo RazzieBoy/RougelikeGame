@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bugcpd0rk84it"
-path="res://.godot/imported/greensquare.png-391048c3b64da604ee1b49cebf85d0d1.ctex"
+uid="uid://m5gcgigno80b"
+path="res://.godot/imported/SpecialSymbol.png-3bbedd701078a0403f794bba1b947258.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/greensquare.png"
-dest_files=["res://.godot/imported/greensquare.png-391048c3b64da604ee1b49cebf85d0d1.ctex"]
+source_file="res://Art/SpecialSymbol.png"
+dest_files=["res://.godot/imported/SpecialSymbol.png-3bbedd701078a0403f794bba1b947258.ctex"]
 
 [params]
 

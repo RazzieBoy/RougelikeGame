@@ -94,8 +94,8 @@ public partial class EnemySpawner : Node2D{
 		Vector2 screenSize = visibleRect.Size;
 		
 		spawnAreaMin = new Vector2(50, 50);
-		spawnAreaMax = new Vector2(screenSize.X - 50, screenSize.Y - 200);
-		spawnAreaMax.X = Mathf.Min(spawnAreaMax.X, screenSize.X - 50);
+		spawnAreaMax = new Vector2(screenSize.X - 100, screenSize.Y - 250);
+		spawnAreaMax.X = Mathf.Min(spawnAreaMax.X, screenSize.X - 100);
 	}
 	
 	private void SpawnEnemy(){
@@ -165,7 +165,6 @@ public partial class EnemySpawner : Node2D{
 			0 => speedItemScene,
 			1 => damageItemScene,
 			2 => healthItemScene,
-			3 => piercingItemScene,
 			_ => speedItemScene
 		};
 		
@@ -188,7 +187,6 @@ public partial class EnemySpawner : Node2D{
 				0 => speedItemScene,
 				1 => damageItemScene,
 				2 => healthItemScene,
-				3 => piercingItemScene,
 				_ => speedItemScene
 			};
 			

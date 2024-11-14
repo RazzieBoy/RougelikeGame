@@ -50,6 +50,15 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 40
 text = "QUIT"
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -220.0
+offset_top = -234.0
+offset_right = 264.0
+offset_bottom = -97.0
+theme_override_font_sizes/font_size = 100
+text = "Overwave"
+
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HelpButton" to="." method="_on_help_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

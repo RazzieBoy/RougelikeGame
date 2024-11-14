@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dox64bulxhul1"]
+[gd_scene load_steps=7 format=3 uid="uid://dox64bulxhul1"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerHud.cs" id="1_vhebq"]
-[ext_resource type="Texture2D" uid="uid://duirc275tjcij" path="res://Art/HUDBackground.png" id="2_mxmvb"]
+[ext_resource type="Texture2D" uid="uid://htrali85dbf" path="res://Art/HealthBarhContainer.png" id="2_6j7g6"]
+[ext_resource type="Texture2D" uid="uid://cwolg4tth1x23" path="res://Art/PrimiarySymbol.png" id="2_ulat1"]
+[ext_resource type="Texture2D" uid="uid://gg52kistyybb" path="res://Art/SecondarySymbol.png" id="3_i02yt"]
+[ext_resource type="Texture2D" uid="uid://d160a41l8c8hw" path="res://Art/UtilitySymbol.png" id="4_7o67x"]
+[ext_resource type="Texture2D" uid="uid://m5gcgigno80b" path="res://Art/SpecialSymbol.png" id="5_eydbe"]
 
 [node name="PlayerHUD" type="Control"]
 layout_mode = 3
@@ -16,25 +20,51 @@ script = ExtResource("1_vhebq")
 
 [node name="HealthLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = -834.0
-offset_top = 439.0
-offset_right = -607.0
-offset_bottom = 481.0
+offset_left = -815.0
+offset_top = 394.0
+offset_right = -588.0
+offset_bottom = 436.0
 theme_override_font_sizes/font_size = 30
 text = "HEALTH: 10 / 10"
 
 [node name="HealthBar" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -940.0
-offset_top = 478.0
-offset_right = -509.0
-offset_bottom = 520.0
-color = Color(0.87451, 0.584314, 1, 1)
+offset_left = -920.0
+offset_top = 453.0
+offset_right = -490.0
+offset_bottom = 508.0
+scale = Vector2(1, 1.015)
+color = Color(0.0666667, 1, 0.00392157, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-705, 521)
+rotation = 0.0174533
+scale = Vector2(0.55, 0.5)
+texture = ExtResource("2_6j7g6")
 
 [node name="PrimaryBackground" type="Sprite2D" parent="."]
 position = Vector2(575, 472)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("2_mxmvb")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_ulat1")
+
+[node name="Primary2" type="Label" parent="PrimaryBackground"]
+anchors_preset = -1
+anchor_left = 0.0713058
+anchor_top = -0.282396
+anchor_right = 0.0713058
+anchor_bottom = -0.282396
+offset_left = -281.306
+offset_top = -537.604
+offset_right = 166.694
+offset_bottom = -128.604
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 300
+text = "M1"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Primary" type="Label" parent="PrimaryBackground"]
 anchors_preset = 8
@@ -55,30 +85,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Primary" type="Label" parent="PrimaryBackground/Primary"]
-layout_mode = 1
+[node name="SecondaryBackground" type="Sprite2D" parent="."]
+position = Vector2(681, 472)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_i02yt")
+
+[node name="Secondary2" type="Label" parent="SecondaryBackground"]
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.4511
-anchor_right = 0.5
-anchor_bottom = 0.4511
-offset_left = -226.667
-offset_top = -680.0
-offset_right = 221.333
-offset_bottom = -271.0
+anchor_left = -0.513643
+anchor_top = -0.314995
+anchor_right = -0.513643
+anchor_bottom = -0.314995
+offset_left = 303.643
+offset_top = -505.005
+offset_right = 751.643
+offset_bottom = -96.0049
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 300
-text = "M1"
+text = "M2"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="SecondaryBackground" type="Sprite2D" parent="."]
-position = Vector2(681, 472)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("2_mxmvb")
 
 [node name="Secondary" type="Label" parent="SecondaryBackground"]
 anchors_preset = 8
@@ -99,30 +128,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Secondary" type="Label" parent="SecondaryBackground/Secondary"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.418501
-anchor_right = 0.5
-anchor_bottom = 0.418501
-offset_left = -226.667
-offset_top = -666.667
-offset_right = 221.333
-offset_bottom = -257.667
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 300
-text = "M2"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="UtilityBackground" type="Sprite2D" parent="."]
 position = Vector2(787, 472)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("2_mxmvb")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_7o67x")
 
 [node name="Utility" type="Label" parent="UtilityBackground"]
 anchors_preset = 8
@@ -130,10 +139,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -685.5
-offset_top = -524.5
-offset_right = 45.5
-offset_bottom = -115.5
+offset_left = -850.0
+offset_top = -430.0
+offset_right = -119.0
+offset_bottom = -20.9999
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -143,17 +152,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Utility" type="Label" parent="UtilityBackground/Utility"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.509119
-anchor_top = 0.385902
-anchor_right = 0.509119
-anchor_bottom = 0.385902
-offset_left = -366.667
-offset_top = -653.333
-offset_right = 364.333
-offset_bottom = -244.333
+[node name="Utility2" type="Label" parent="UtilityBackground"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -850.0
+offset_top = -1320.0
+offset_right = -119.0
+offset_bottom = -911.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -165,39 +173,19 @@ metadata/_edit_use_anchors_ = true
 
 [node name="SpecialBackground" type="Sprite2D" parent="."]
 position = Vector2(892, 472)
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("2_mxmvb")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_eydbe")
 
-[node name="Special" type="Label" parent="SpecialBackground"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -583.0
-offset_top = -559.0
-offset_right = -57.0
-offset_bottom = -81.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 300
-text = "Spe"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Special" type="Label" parent="SpecialBackground/Special"]
-layout_mode = 1
+[node name="Special2" type="Label" parent="SpecialBackground"]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.500001
 anchor_right = 0.5
 anchor_bottom = 0.500001
-offset_left = -280.0
-offset_top = -733.333
-offset_right = 246.0
-offset_bottom = -255.333
+offset_left = -770.0
+offset_top = -1380.0
+offset_right = -244.0
+offset_bottom = -902.001
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -207,20 +195,39 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
+[node name="Special" type="Label" parent="SpecialBackground"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -770.0
+offset_top = -500.0
+offset_right = -244.0
+offset_bottom = -21.9998
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 300
+text = "Spe"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
 [node name="SpeedLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = -470.0
-offset_top = 486.0
-offset_right = -348.0
-offset_bottom = 528.0
+offset_left = -415.0
+offset_top = 471.0
+offset_right = -257.0
+offset_bottom = 513.0
 theme_override_font_sizes/font_size = 30
 text = "SPEED: 300"
 
 [node name="DamageLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = -470.0
-offset_top = 438.0
-offset_right = -312.0
-offset_bottom = 480.0
+offset_left = -415.0
+offset_top = 423.0
+offset_right = -254.0
+offset_bottom = 465.0
 theme_override_font_sizes/font_size = 30
 text = "DAMAGE: 2"

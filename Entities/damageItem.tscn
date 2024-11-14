@@ -1,22 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://326r5cfdi7a6"]
 
 [ext_resource type="Script" path="res://Scripts/DamageItem.cs" id="1_7pif5"]
-[ext_resource type="Texture2D" uid="uid://dyh210g8cm5ns" path="res://Art/redsquare.jpg" id="2_2jv6q"]
+[ext_resource type="Texture2D" uid="uid://cjo4vd36sef0m" path="res://Art/DamageItem.png" id="2_t5rkk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xyi7y"]
-size = Vector2(22, 23)
+size = Vector2(54.7906, 14.1216)
 
 [node name="DamageNode" type="Node2D"]
 script = ExtResource("1_7pif5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.015, 0.015)
-texture = ExtResource("2_2jv6q")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_t5rkk")
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 6)
+rotation = -0.572468
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 0.5)
+position = Vector2(-5.16687, 4.65112)
 shape = SubResource("RectangleShape2D_xyi7y")
 
 [connection signal="body_entered" from="Area2D" to="." method="OnBodyEntered"]

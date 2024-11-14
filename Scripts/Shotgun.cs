@@ -34,8 +34,6 @@ public partial class Shotgun : Node2D{
 				secondaryAmmoCount--;
 				UpdateAmmo();
 			}
-			if	(secondaryAmmoCount <= 0){
-			}
 		}
 		else{
 			attackCooldown += (float)delta;

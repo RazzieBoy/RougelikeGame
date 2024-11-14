@@ -91,7 +91,6 @@ public partial class Gun : Node2D{
 			bps = storedBps * 3;
 			fireRate = 1 / bps;
 		}
-
 	}
 	
 	private void UpdateAmmo(){
