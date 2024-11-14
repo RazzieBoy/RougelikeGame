@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cya5nqxghxjdi"]
+[gd_scene load_steps=4 format=3 uid="uid://cya5nqxghxjdi"]
 
 [ext_resource type="Script" path="res://Scripts/Info.cs" id="1_6bdii"]
+[ext_resource type="FontFile" uid="uid://d30b4l3ki6lkn" path="res://Fonts/ComicNeue-Regular.ttf" id="2_pvwaj"]
+[ext_resource type="FontFile" uid="uid://dhtdrcect3hhm" path="res://Fonts/ComicNeue-BoldItalic.ttf" id="3_mphv2"]
 
 [node name="Info" type="Control"]
 layout_mode = 3
@@ -13,12 +15,14 @@ script = ExtResource("1_6bdii")
 
 [node name="How To Play" type="Label" parent="."]
 layout_mode = 2
-offset_left = 815.0
+offset_left = 871.0
 offset_top = 267.0
-offset_right = 1050.0
+offset_right = 1118.0
 offset_bottom = 322.0
+theme_override_fonts/font = ExtResource("2_pvwaj")
 theme_override_font_sizes/font_size = 40
 text = "How To Play"
+uppercase = true
 
 [node name="HSplitContainer" type="HSplitContainer" parent="."]
 layout_mode = 1
@@ -27,10 +31,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -498.0
-offset_top = -175.0
-offset_right = 498.0
-offset_bottom = 175.0
+offset_left = -503.0
+offset_top = -183.0
+offset_right = 604.0
+offset_bottom = 167.0
 grow_horizontal = 2
 grow_vertical = 2
 split_offset = 20
@@ -42,73 +46,98 @@ layout_mode = 2
 [node name="Abilities" type="Label" parent="HSplitContainer/KeyInputs"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_mphv2")
 theme_override_font_sizes/font_size = 50
 text = "Abilities"
+uppercase = true
 
 [node name="Primary Shoot (single line)" type="Label" parent="HSplitContainer/KeyInputs"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pvwaj")
 theme_override_font_sizes/font_size = 40
 text = "Primary Shoot (single line)"
+uppercase = true
 
 [node name="Secondary Shoot (Spread)" type="Label" parent="HSplitContainer/KeyInputs"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pvwaj")
 theme_override_font_sizes/font_size = 40
 text = "Secondary Shoot (Spread)"
+uppercase = true
 
 [node name="Utility (Dash)" type="Label" parent="HSplitContainer/KeyInputs"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pvwaj")
 theme_override_font_sizes/font_size = 40
 text = "Utility (Dash)"
+uppercase = true
 
 [node name="Special (Frenzy)" type="Label" parent="HSplitContainer/KeyInputs"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pvwaj")
 theme_override_font_sizes/font_size = 40
 text = "Special (Frenzy)"
+uppercase = true
 
 [node name="Reload" type="Label" parent="HSplitContainer/KeyInputs"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pvwaj")
 theme_override_font_sizes/font_size = 40
 text = "Reload"
+uppercase = true
 
 [node name="WhatTheyDo2" type="VBoxContainer" parent="HSplitContainer"]
 layout_mode = 2
 
 [node name="Key Binds" type="Label" parent="HSplitContainer/WhatTheyDo2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_mphv2")
 theme_override_font_sizes/font_size = 50
 text = "Key Binds"
+uppercase = true
 
 [node name="M1 (Left Mouse Button" type="Label" parent="HSplitContainer/WhatTheyDo2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pvwaj")
 theme_override_font_sizes/font_size = 40
 text = "M1 (Left Mouse Button)"
+uppercase = true
 
 [node name="M2 (Right Mouse Button))" type="Label" parent="HSplitContainer/WhatTheyDo2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pvwaj")
 theme_override_font_sizes/font_size = 40
 text = "M2 (Right Mouse Button)"
+uppercase = true
 
 [node name="Left Shift" type="Label" parent="HSplitContainer/WhatTheyDo2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pvwaj")
 theme_override_font_sizes/font_size = 40
 text = "Left Shift"
+uppercase = true
 
 [node name="Q" type="Label" parent="HSplitContainer/WhatTheyDo2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pvwaj")
 theme_override_font_sizes/font_size = 40
 text = "Q"
+uppercase = true
 
 [node name="R" type="Label" parent="HSplitContainer/WhatTheyDo2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pvwaj")
 theme_override_font_sizes/font_size = 40
 text = "R"
+uppercase = true
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 825.0
-offset_top = 746.0
-offset_right = 1118.0
-offset_bottom = 809.0
+offset_left = 808.0
+offset_top = 740.0
+offset_right = 1101.0
+offset_bottom = 803.0
+theme_override_fonts/font = ExtResource("2_pvwaj")
 theme_override_font_sizes/font_size = 40
 text = "Back"
 

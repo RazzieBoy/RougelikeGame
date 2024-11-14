@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://derv50hpb76sx"]
+[gd_scene load_steps=10 format=3 uid="uid://derv50hpb76sx"]
 
 [ext_resource type="Script" path="res://Scripts/EnemySpawner.cs" id="1_8042j"]
 [ext_resource type="PackedScene" uid="uid://blv0f1ln71nmk" path="res://Entities/melee_enemy.tscn" id="2_m4gle"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://326r5cfdi7a6" path="res://Entities/damageItem.tscn" id="5_jxok5"]
 [ext_resource type="PackedScene" uid="uid://ca1d128kg0uus" path="res://Entities/healItem.tscn" id="6_7foyf"]
 [ext_resource type="PackedScene" uid="uid://tv51h3pp4syi" path="res://Entities/pierceItem.tscn" id="8_ngukd"]
+[ext_resource type="FontFile" uid="uid://cpe3r7exyblc2" path="res://Fonts/ComicNeue-Bold.ttf" id="9_m3og1"]
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_8042j")
@@ -32,6 +33,7 @@ offset_bottom = 1029.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_m3og1")
 theme_override_font_sizes/font_size = 40
 text = "Level: 1"
 horizontal_alignment = 1
@@ -51,5 +53,6 @@ offset_bottom = 182.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("9_m3og1")
 theme_override_font_sizes/font_size = 40
 text = "NEXT WAVE IN: 5"
