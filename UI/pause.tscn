@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0v5346kxng6c"]
+[gd_scene load_steps=3 format=3 uid="uid://c0v5346kxng6c"]
 
 [ext_resource type="Script" path="res://Scripts/Pause.cs" id="1_wl32k"]
+[ext_resource type="FontFile" uid="uid://d30b4l3ki6lkn" path="res://Fonts/ComicNeue-Regular.ttf" id="2_ykdbe"]
 
 [node name="Pause" type="Control"]
 process_mode = 3
@@ -15,24 +16,26 @@ script = ExtResource("1_wl32k")
 [node name="Close" type="Button" parent="."]
 layout_mode = 2
 offset_left = 856.0
-offset_top = 440.0
-offset_right = 1064.0
-offset_bottom = 538.0
+offset_top = 436.0
+offset_right = 1066.0
+offset_bottom = 536.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_ykdbe")
 theme_override_font_sizes/font_size = 65
 text = "CLOSE"
 
 [node name="Home" type="Button" parent="."]
 layout_mode = 2
-offset_left = 862.0
-offset_top = 542.0
-offset_right = 1058.0
-offset_bottom = 640.0
+offset_left = 856.0
+offset_top = 545.0
+offset_right = 1066.0
+offset_bottom = 645.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_ykdbe")
 theme_override_font_sizes/font_size = 65
-text = "Home"
+text = "HOME"
 
 [connection signal="pressed" from="Close" to="." method="_Pause"]
 [connection signal="pressed" from="Home" to="." method="_Home"]

@@ -46,7 +46,8 @@ text = "START"
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_4kuas")
 theme_override_font_sizes/font_size = 40
-text = "How To Play"
+text = "HOW TO PLAY
+"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2

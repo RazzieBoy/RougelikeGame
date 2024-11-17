@@ -15,9 +15,9 @@ script = ExtResource("1_6bdii")
 
 [node name="How To Play" type="Label" parent="."]
 layout_mode = 2
-offset_left = 871.0
+offset_left = 815.0
 offset_top = 267.0
-offset_right = 1118.0
+offset_right = 1062.0
 offset_bottom = 322.0
 theme_override_fonts/font = ExtResource("2_pvwaj")
 theme_override_font_sizes/font_size = 40
@@ -139,6 +139,6 @@ offset_right = 1101.0
 offset_bottom = 803.0
 theme_override_fonts/font = ExtResource("2_pvwaj")
 theme_override_font_sizes/font_size = 40
-text = "Back"
+text = "BACK"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -61,22 +61,25 @@ public partial class EnemySpawner : Node2D{
 			spawnCooldown -= (float)delta;
 			UpdateNextWave();
 		}
-		//Spawn the enemies
+		//Spawn the enemies and checks if it is a boss level or not.
 		if (hasEnemiesSpawned && spawnCooldown <= 0){
 			if (currentLevel % 5 == 0){
 				if (!hasMiniBossSpawned){
+					//Funtion that spawns the mini boss
 					SpawnMiniBoss();
 					hasMiniBossSpawned = true;
 					totalSpawnedEnemies = maxSpawnCount;
 				}
 			}
 			else{
+				//function that spawns normal enemies
 				SpawnEnemy();
 			}
 			hasEnemiesSpawned = false;
 		}
-		
+		//Checks if there are active enemies and empties the list if there are no active enemies.
 		activeEnemies.RemoveAll(enemy => !IsInstanceValid(enemy));
+		//Spawns an item after all enemies have been defeated
 		if (activeEnemies.Count == 0 && totalSpawnedEnemies == maxSpawnCount){
 			SpawnItem();
 			spawnCooldown = 5f;
@@ -89,6 +92,7 @@ public partial class EnemySpawner : Node2D{
 		activeItems.RemoveAll(item => !IsInstanceValid(item));
 	}
 	
+	//Function that creates an area of where items can spawn so they aren't placed outside of the playable area
 	private void UpdateSpawnArea(){
 		Rect2 visibleRect = GetViewport().GetVisibleRect();
 		Vector2 screenSize = visibleRect.Size;
@@ -98,12 +102,16 @@ public partial class EnemySpawner : Node2D{
 		spawnAreaMax.X = Mathf.Min(spawnAreaMax.X, screenSize.X - 100);
 	}
 	
+	//Functuion that handles enemies spawning
 	private void SpawnEnemy(){
+		//Number randomization initlization
 		RandomNumberGenerator rng = new RandomNumberGenerator();
 		rng.Randomize();
 		
+		//"randomly" chooses which enemy to spawn
 		PackedScene enemyScene = rng.RandiRange(0, 1) == 0 ? meleeEnemyScene : rangedEnemyScene;
 		
+		//Sets the spawn location of enemies outside of the border that limits the player
 		Vector2 spawnPosition = Vector2.Zero;
 		Rect2 visibleRect = GetViewport().GetVisibleRect();
 		Vector2 screenSize = visibleRect.Size;
@@ -119,7 +127,6 @@ public partial class EnemySpawner : Node2D{
 				case 3: spawnPosition = new Vector2(screenSize.X + 50, rng.RandfRange(-50, screenSize.Y + 50));
 					break;
 			}
-			//spawnPosition = new Vector2(rng.RandfRange(spawnAreaMin.X, spawnAreaMax.X), rng.RandfRange(spawnAreaMin.Y, spawnAreaMax.Y));
 		} while (player != null && player.Position.DistanceTo(spawnPosition) < 200);
 		
 		Node2D enemyInstance = enemyScene.Instantiate<Node2D>();
@@ -129,6 +136,7 @@ public partial class EnemySpawner : Node2D{
 		totalSpawnedEnemies++; // Increment the total spawn count
 	}
 	
+	//Fucntion thta spawns a mini boss, works the same as the enemy spawning function
 	private void SpawnMiniBoss(){
 		RandomNumberGenerator rng = new RandomNumberGenerator();
 		rng.Randomize();
@@ -155,12 +163,14 @@ public partial class EnemySpawner : Node2D{
 		activeEnemies.Add(enemyInstance);
 	}
 	
+	//Fucntion that spawns items for the player
 	private void SpawnItem(){
+		//Random number initlization
 		RandomNumberGenerator itemRng = new RandomNumberGenerator();
 		itemRng.Randomize();
 		int itemChoice = itemRng.RandiRange(0,3);
-		GD.Print($"Item: {itemChoice} has spawned");
 		
+		//The different items that can be spawned
 		PackedScene itemScene = itemChoice switch{
 			0 => speedItemScene,
 			1 => damageItemScene,
@@ -168,6 +178,7 @@ public partial class EnemySpawner : Node2D{
 			_ => speedItemScene
 		};
 		
+		//Gives the location for the items to be spawned in the game
 		Vector2 itemSpawnPosition;
 		do{
 			itemSpawnPosition = new Vector2(itemRng.RandfRange(spawnAreaMin.X, spawnAreaMax.X), itemRng.RandfRange(spawnAreaMin.Y, spawnAreaMax.Y));
@@ -178,6 +189,7 @@ public partial class EnemySpawner : Node2D{
 		AddChild(itemInstance);
 		activeItems.Add(itemInstance);
 		
+		//10 prcoent chance for there to spawn an extra item
 		if (itemRng.Randf() <= 0.1f){
 			List<int> remainingChoices = new List<int> {0, 1, 2, 3};
 			remainingChoices.Remove(itemChoice);
@@ -201,13 +213,14 @@ public partial class EnemySpawner : Node2D{
 			activeItems.Add(extraItemInstance);
 		}
 	}
-	
+	//Function thta updates the label for the current level
 	private void UpdateLevelLabel(){
 		if (levelLabel != null){
 			levelLabel.Text = $"LEVEL: {currentLevel}";
 		}
 	}
 	
+	//Function that let's the player know when the next wave of enemies spawn
 	private void UpdateNextWave(){
 		if (nextWave != null && spawnCooldown >= 0){
 			nextWave.Show();
