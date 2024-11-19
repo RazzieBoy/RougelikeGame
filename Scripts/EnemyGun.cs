@@ -7,7 +7,7 @@ public partial class EnemyGun : Node2D{
 	[Export] PackedScene bulletScene;
 	//Floats that hold value of the bullet speed and how quick the gun can be fired
 	[Export] float bulletSpeed = 800f;
-	[Export] float shootCooldown = 1f;
+	[Export] float shootCooldown = 2f;
 	//Get's the player node so it can be referenced easily
 	private Node2D player;
 	//How quickly the enemy can attck
