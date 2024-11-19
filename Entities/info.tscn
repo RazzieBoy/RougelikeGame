@@ -51,6 +51,14 @@ theme_override_font_sizes/font_size = 50
 text = "Abilities"
 uppercase = true
 
+[node name="Movement" type="Label" parent="HSplitContainer/KeyInputs"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_pvwaj")
+theme_override_font_sizes/font_size = 40
+text = "MOVEMENT"
+uppercase = true
+
 [node name="Primary Shoot (single line)" type="Label" parent="HSplitContainer/KeyInputs"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_pvwaj")
@@ -94,6 +102,13 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_mphv2")
 theme_override_font_sizes/font_size = 50
 text = "Key Binds"
+uppercase = true
+
+[node name="M1 (Left Mouse Button2" type="Label" parent="HSplitContainer/WhatTheyDo2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_pvwaj")
+theme_override_font_sizes/font_size = 40
+text = "W, A, S, D"
 uppercase = true
 
 [node name="M1 (Left Mouse Button" type="Label" parent="HSplitContainer/WhatTheyDo2"]

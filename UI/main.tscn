@@ -15,8 +15,11 @@ script = ExtResource("1_312f2")
 position = Vector2(1021, 555)
 
 [node name="Pause" parent="." instance=ExtResource("5_2rvqq")]
-visible = false
 z_index = 6
+offset_left = 960.0
+offset_top = 540.0
+offset_right = 960.0
+offset_bottom = 540.0
 
 [node name="PlayerHUD" parent="." instance=ExtResource("6_nvtmb")]
 visibility_layer = 17
