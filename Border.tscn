@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://c5u6m466iidd1"]
+[gd_scene load_steps=2 format=3 uid="uid://c5u6m466iidd1"]
+
+[ext_resource type="Texture2D" uid="uid://cwis8s0mde0fi" path="res://Art/BorderLine.png" id="1_mv1ls"]
 
 [node name="Border" type="Control"]
 layout_mode = 3
@@ -35,3 +37,59 @@ offset_left = 45.0
 offset_top = 880.0
 offset_right = 1875.0
 offset_bottom = 885.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(41, 292)
+texture = ExtResource("1_mv1ls")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(41, 641)
+texture = ExtResource("1_mv1ls")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(296, 877)
+rotation = 1.5708
+texture = ExtResource("1_mv1ls")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(792, 876)
+rotation = 1.5708
+texture = ExtResource("1_mv1ls")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(1285, 876)
+rotation = 1.5708
+texture = ExtResource("1_mv1ls")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(1633, 878)
+rotation = 1.5708
+texture = ExtResource("1_mv1ls")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(1866, 293)
+texture = ExtResource("1_mv1ls")
+
+[node name="Sprite2D8" type="Sprite2D" parent="."]
+position = Vector2(1866, 642)
+texture = ExtResource("1_mv1ls")
+
+[node name="Sprite2D9" type="Sprite2D" parent="."]
+position = Vector2(289, 43)
+rotation = 1.5708
+texture = ExtResource("1_mv1ls")
+
+[node name="Sprite2D10" type="Sprite2D" parent="."]
+position = Vector2(785, 42)
+rotation = 1.5708
+texture = ExtResource("1_mv1ls")
+
+[node name="Sprite2D11" type="Sprite2D" parent="."]
+position = Vector2(1278, 42)
+rotation = 1.5708
+texture = ExtResource("1_mv1ls")
+
+[node name="Sprite2D12" type="Sprite2D" parent="."]
+position = Vector2(1626, 44)
+rotation = 1.5708
+texture = ExtResource("1_mv1ls")

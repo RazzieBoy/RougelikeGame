@@ -34,13 +34,6 @@ public partial class Player : CharacterBody2D{
 		//Makes the player always look at where the computer mouse is located
 		LookAt(GetGlobalMousePosition());
 		
-		if (piercingDuration > 0){
-			piercingDuration -= (float)delta;
-			if (piercingDuration <= 0){
-				DisablePiercing();
-			}
-		}
-		
 		if (dashCooldownTime > 0){
 			dashCooldownTime -= (float)delta;
 			if (dashCooldownTime >= 0){
@@ -101,15 +94,6 @@ public partial class Player : CharacterBody2D{
 		var gun = GetNode<Gun>("Gun");
 		if (gun != null) {
 			gun.EnablePiercing(3); // Ensure this matches the method signature in Gun
-		}
-	}
-
-	
-	public void DisablePiercing(){
-		hasPiercingBullet = false;
-		var gun = GetNode<Gun>("Gun");
-		if (gun != null){
-			gun.DisablePiercing();
 		}
 	}
 	

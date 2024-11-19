@@ -16,7 +16,6 @@ public partial class MeleeEnemy : CharacterBody2D{
 	public override void _Ready(){
 		var mainScene = (Main)GetTree().Root.GetNode("Main");
 		player = mainScene.GetNode<Player>("Player");
-		
 		attackRate = 1 / aps;
 		attackCooldown = attackRate;
 	}
