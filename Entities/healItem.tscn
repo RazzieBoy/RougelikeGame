@@ -7,6 +7,7 @@
 size = Vector2(66, 62)
 
 [node name="HealItem" type="Node2D"]
+z_index = -1
 script = ExtResource("1_qwmb7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

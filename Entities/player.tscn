@@ -38,14 +38,14 @@ one_shot = true
 [node name="Shotgun" type="Node2D" parent="."]
 
 [node name="Barrel1" type="Node2D" parent="Shotgun"]
-position = Vector2(47, -45)
-rotation = -0.261799
+position = Vector2(47, -35)
+rotation = -0.0872665
 script = ExtResource("6_e52s3")
 bulletScene = ExtResource("4_qwrt7")
 
 [node name="Barrel3" type="Node2D" parent="Shotgun"]
-position = Vector2(47, 45)
-rotation = 0.261799
+position = Vector2(47, 35)
+rotation = 0.0872665
 script = ExtResource("6_e52s3")
 bulletScene = ExtResource("4_qwrt7")
 

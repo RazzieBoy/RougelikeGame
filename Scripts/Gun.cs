@@ -52,22 +52,25 @@ public partial class Gun : Node2D{
 				CooldownUpdatedEventHandler?.Invoke(this, 30);
 			}
 		}
-		//Players primary Attack methods used via the Left mouse button
+		
+		//Checks if the player is only clicking the eft mouse button to shoot and if it has enough ammo
 		if (Input.IsActionPressed("primairy") && !Input.IsActionPressed("secondary") && attackCooldown > fireRate && reloadTime <= 0){
+			//Check to see if the player isn't reloading
 			if (!isReloading && (primaryAmmoCount > 0 || isFrenzy)){
+				//Sets the orientation of the bullet and it's position to be accurate for the player, so it doesn't shoot from the wrong location
 				RigidBody2D bullet = bulletScene.Instantiate<RigidBody2D>();
 				bullet.Rotation = GlobalRotation;
 				bullet.GlobalPosition = GlobalPosition;
 				bullet.LinearVelocity = bullet.Transform.X * bulletSpeed;
 				// Set bullet's damage based on gun's bulletDamage
-				Bullet bulletScript = bullet as Bullet; // Assuming Bullet script is attached to the bullet scene
+				Bullet bulletScript = bullet as Bullet;
 				if (bulletScript != null){
 					bulletScript.damage = bulletDamage;
-					bulletScript.piercingCount = piercingEnabled ? piercingCount : 0; 
-					//GD.Print("Bullet damage set to: " + bulletDamage); // For debugging
 				}
+				//Makes the fired bullets to children nodes until removed
 				GetTree().Root.AddChild(bullet);
 				attackCooldown = 0f;
+				//Check to see if the player isn't using their special
 				if (!isFrenzy){
 					primaryAmmoCount--;
 					UpdateAmmo();
@@ -77,6 +80,7 @@ public partial class Gun : Node2D{
 		else{
 			attackCooldown += (float)delta;
 		}
+		//Check to see if the player wants to reload and sets the ammo to maximum capacity
 		if (Input.IsActionPressed("reload") && reloadTime <= 0){
 			primaryAmmoCount = 10;
 			UpdateAmmo();
@@ -85,6 +89,7 @@ public partial class Gun : Node2D{
 		else{
 			reloadTime -= (float)delta;
 		}
+		//Check to see if the player can use their special ability
 		if (Input.IsActionPressed("special") && frenzyCooldownLeft <= 0){
 			isFrenzy = true;
 			frenzyTimeLeft = frenzyTime;
@@ -93,15 +98,14 @@ public partial class Gun : Node2D{
 		}
 	}
 	
+	//Function that sends the current ammo count to the playerhud
 	private void UpdateAmmo(){
 		AmmoUpdatedEventHandler?.Invoke(this, (int)primaryAmmoCount);
 	}
 	
-	// Call this method to enable piercing when the player picks up the item
-	 // Method to enable piercing when the player picks up the item
 	public void EnablePiercing(int count){
 		piercingEnabled = true;
-		piercingCount = count; // Set the piercing count to the provided value
+		piercingCount = count; 
 	}
 
 	public void DisablePiercing(){

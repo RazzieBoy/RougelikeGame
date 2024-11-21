@@ -7,6 +7,7 @@
 size = Vector2(54.7906, 14.1216)
 
 [node name="DamageNode" type="Node2D"]
+z_index = -1
 script = ExtResource("1_7pif5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
